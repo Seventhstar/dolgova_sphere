@@ -1,0 +1,12 @@
+#app
+  span#width  {txt}} - {{idx}} - showChild:{{showChild} 
+  #sphere
+    img#imgSphere :style="sphereStyle" alt="сфера" src="sphera_bold-01.svg" /
+    = succeed "@mouseover=\"showChild" do
+      img#iconChild :style="iconChildStyle" src="child.svg" /
+    transition-group :duration=("{ enter: 500), leave: 2000 }" name="fade" 
+      img#childRing :class="childClass" :key="0" :style="childRingStyle" src="ring.svg" v-show=("idx===2 || showChild") >/
+      | @mouseover="showChild = true" @mouseout="showChild = false" /&gt;
+      = succeed "@mouseover=\"showChild" do
+        img#familyRing.item :key="1" :style="iconFamilyStyle" src="ring.svg" v-show=("idx===4 || showFamily") /
+      span.span-text :key="10" :style="childTextStyle" v-show=("idx===2 || showChild")  

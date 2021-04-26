@@ -13,3 +13,104 @@
  *= require_tree .
  *= require_self
  */
+
+
+body {
+
+}
+
+ul {
+    color: #1a6c77;
+    list-style: none;
+}
+
+li:hover {
+    color: blue;
+    cursor: pointer;
+}
+
+ul li {
+    display: inline;
+    margin-right: 5px;
+    padding: 3px;
+}
+
+#main-nav {
+    height: 80px;
+    display: block;
+}
+
+.logo {
+    margin-left: 50px;
+    width: 450px;
+    float: left;
+}
+
+ul.main-nav {
+    float: right;
+}
+
+/*#logo {*/
+/*    height: 70px;*/
+/*    margin: auto;*/
+/*    display: block;*/
+/*    background-image: url('../img/logo.png');*/
+/*}*/
+
+
+#sphere {
+    width: 50%;
+    max-width: 640px;
+    /*height: 50%;*/
+    /*min-height: 600px;*/
+    margin: 80px auto;
+    /*margin-top: 80px;*/
+    /*display: block;*/
+    /*background: url(sphera-01.svg) no-repeat;*/
+}
+
+/*#family-logo {*/
+/*    margin: auto;*/
+/*    display: block;*/
+/*    background: url("family.svg") no-repeat;*/
+/*}*/
+.ring {
+    width: 130px;
+    height: 130px;
+    left: 50%;
+    position: absolute;
+    margin-top: -55px;
+    margin-left: -65px;
+    opacity: 0;
+}
+
+.fade-in {
+    opacity: 0;
+    transition:opacity 1s
+}
+
+.fade-in:hover {
+    opacity:100%;
+    transition:opacity 0.5s
+}
+
+.family {
+    position: absolute;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -60px;
+    height: 120px;
+    width: 120px;
+    display: block;
+}
+
+.group {
+/ / top: 100 %;
+    margin-top: -150px;
+    position: absolute;
+    left: 50%;
+    margin-left: -60px;
+    height: 120px;
+    width: 120px;
+
+}

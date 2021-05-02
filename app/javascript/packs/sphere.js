@@ -1,10 +1,5 @@
 import Vue from 'vue'
-import App from './components/sphere.vue'
-import Vuetify from 'vuetify'
-import 'vuetify/dist/vuetify.min.css'
-//import App from '../app.vue'
-
-//Vue.use(Vuetify)
+import App from './components/Sphere.vue'
 
 document.addEventListener('DOMContentLoaded', () => {
   const app = new Vue({

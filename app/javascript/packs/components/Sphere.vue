@@ -1,6 +1,6 @@
 <template>
   <div>
-    <span id="width">{{txt}} - {{idx}} - showChild:{{showChild}}</span>
+    <span id="width">{{txt}} - {{idx}} - activeNumber:{{activeNumber}}</span>
     <div id="sphere">
       <img :src="require('images/sphera_bold-01.svg')" id="imgSphere" :style="sphereStyle" alt="сфера"/>
       <sphere-icon :fields="icon" v-for="icon in iconsData"/>
@@ -35,10 +35,11 @@
           },
           {degree: 270, name: 'group', title: 'Групповая психотерапия', active: false}
         ],
-
+        activeNumber: 0,
         iconSize: 128,
         items: [...Array(4)].map((n, i) => i + 1),
         idx: 0,
+        txt: ''
       }
     },
     created() {
@@ -80,11 +81,17 @@
     methods: {
       run() {
         this.idx += 1;
-        if (this.idx === 6) {
-          this.idx = 0;
-          this.iconsData.forEach(i=> i.active = false)
-          this.iconsData[Math.random()*4].active = true
+        if (this.idx === 3) {
+          this.iconsData.forEach(i => i.active = false)
+        } else if (this.idx === 6) {
+          this.idx = 0
+          let newActive = Math.round(Math.random() * 4)
+          if (this.activeNumber === newActive) newActive += 1
+          if (newActive === 4) newActive = 0
+          this.activeNumber = newActive
+          this.iconsData[this.activeNumber].active = true
         }
+
         // console.log('this.idx', this.idx)
       },
 

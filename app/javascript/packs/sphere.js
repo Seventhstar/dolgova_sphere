@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import App from './components/Sphere.vue'
+import App from './components/sphere.vue'
 
 document.addEventListener('DOMContentLoaded', () => {
   const app = new Vue({

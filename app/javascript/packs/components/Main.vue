@@ -1,9 +1,13 @@
 <template>
   <div>
-    <span id="width">{{txt}} - {{idx}} - activeNumber:{{activeNumber}}</span>
-    <div id="sphere">
-      <img :src="require('images/sphera_bold-01.svg')" id="imgSphere" :style="sphereStyle" alt="сфера"/>
-      <sphere-icon :fields="icon" v-for="icon in iconsData" :key="icon.degree"/>
+<!--    <span id="width">{{txt}} - {{idx}} - activeNumber:{{activeNumber}}</span>-->
+    <div id="sphere-grid">
+      <div id="sphere" :style="leftDivStyle">
+        <img :src="require('images/sphera_bold-01.svg')" id="imgSphere" :style="sphereStyle" alt="сфера"/>
+        <sphere-icon :fields="icon" v-for="icon in iconsData" :key="icon.degree"/>
+      </div>
+      <div id="description" :style="rightDivStyle">
+      </div>
     </div>
   </div>
 </template>
@@ -37,6 +41,7 @@
         ],
         activeNumber: 0,
         iconSize: 128,
+        showDescription: false,
         items: [...Array(4)].map((n, i) => i + 1),
         idx: 0,
         txt: ''
@@ -70,7 +75,17 @@
         return `width: ${this.minSize}px; height: ${this.minSize}px;
 	      margin-top: -${this.minSize / 2}px; margin-left: -${this.minSize / 2}px;
 	      top: 50%; left: 50%; position: absolute`
-      }
+      },
+
+      leftDivStyle: function () {
+        return `width: 50%;
+                height: ${this.minSize}px;
+                min-width: ${this.minSize}px`
+      },
+
+      rightDivStyle: function () {
+        return 'width 50%'
+      },
 
     },
 

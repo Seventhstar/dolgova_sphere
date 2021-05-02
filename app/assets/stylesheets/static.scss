@@ -1,0 +1,127 @@
+/*
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+*/
+
+
+#main-nav {
+  height: 80px;
+  display: block;
+}
+
+.logo {
+  margin-left: 50px;
+  width: 450px;
+  float: left;
+}
+
+ul.main-nav {
+  float: right;
+}
+
+.span-text {
+  color: #1a6c77;
+  background: white;
+  border: 1px solid #1a6c77;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.about_card, .we_card, .footer_card {
+  display: grid;
+  background-color: white;
+  padding: 20px 20px 30px 20px;
+  margin: 40px auto;
+  max-width: 1200px;
+  -webkit-box-shadow: 7px 7px 3px 0 rgba(0, 0, 0, 0.08);
+  -moz-box-shadow: 7px 7px 3px 0 rgba(0, 0, 0, 0.08);
+  box-shadow: 7px 7px 3px 0 rgba(0, 0, 0, 0.08);
+  font-size: 16px;
+  color: #383434;
+
+  & img {
+    margin: 13px 10px 0 22px;
+  }
+}
+
+.footer_card {
+  grid-template-columns: 1fr;
+  border: 1px solid #eee;
+}
+
+.about_card {
+  grid-template-columns: 1fr 436px;
+
+}
+
+.we_card {
+  border: 1px solid #eee;
+  grid-template-columns: 1fr 1fr;
+}
+
+.about_text.full {
+  grid-column: 1 / -1;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.about_text {
+  padding: 10px 20px 0 20px;
+
+  & li {
+    //float: left;
+    margin-bottom: 4px;
+  }
+}
+
+.card {
+  background-color: white;
+  padding: 40px 20px 30px 20px;
+  margin: 40px auto;
+  max-width: 1200px;
+  -webkit-box-shadow: 7px 7px 3px 0 rgba(0, 0, 0, 0.08);
+  -moz-box-shadow: 7px 7px 3px 0 rgba(0, 0, 0, 0.08);
+  box-shadow: 7px 7px 3px 0 rgba(0, 0, 0, 0.08);
+  align-content: center;
+}
+
+.child-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+}
+
+.icons_card {
+  & b, p {
+    text-align: center;
+    font-size: 24px;
+    margin: 8px 40px;
+  }
+
+  & img {
+    align-self: center;
+    justify-self: center;
+    width: 40%;
+  }
+}
+
+.icons_card_3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 200px 76px 54px;
+}
+
+.icons_card_2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 200px 76px;
+  margin-top: 26px;
+
+  & img {
+    width: 25%;
+  }
+}

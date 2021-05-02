@@ -5,7 +5,7 @@
 </template>
 
 <script>
-  import sphere from "./packs/components/sphere";
+  import sphere from "./packs/components/Sphere";
 
   export default {
     data: function () {

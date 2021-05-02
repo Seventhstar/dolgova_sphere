@@ -12,7 +12,7 @@
   import SphereIcon from "./SphereIcon";
 
   export default {
-    name: 'Sphere',
+    name: 'Main',
     components: {SphereIcon},
     data: function () {
       return {

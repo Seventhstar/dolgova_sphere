@@ -1,2 +1,3 @@
 web: bundle exec rails s -p 3000 
-webpack: webpack-dev-server
+#webpack: webpack-dev-server
+webpacker: ruby ./bin/webpack-dev-server --port $PORT

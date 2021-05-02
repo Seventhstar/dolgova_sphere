@@ -19,3 +19,10 @@ ul.main-nav {
     float: right;
 }
 
+.span-text {
+    color: #1a6c77;
+    background: white;
+    border: 1px solid #1a6c77;
+    padding: 10px;
+    border-radius: 8px;
+}

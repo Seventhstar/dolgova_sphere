@@ -33,6 +33,7 @@ ul li {
     display: inline;
     margin-right: 5px;
     padding: 3px;
+    letter-spacing: .1em;
 }
 
 #main-nav {
@@ -50,30 +51,13 @@ ul.main-nav {
     float: right;
 }
 
-/*#logo {*/
-/*    height: 70px;*/
-/*    margin: auto;*/
-/*    display: block;*/
-/*    background-image: url('../img/logo.png');*/
-/*}*/
-
 
 #sphere {
     width: 50%;
     max-width: 640px;
-    /*height: 50%;*/
-    /*min-height: 600px;*/
     margin: 80px auto;
-    /*margin-top: 80px;*/
-    /*display: block;*/
-    /*background: url(sphera-01.svg) no-repeat;*/
 }
 
-/*#family-logo {*/
-/*    margin: auto;*/
-/*    display: block;*/
-/*    background: url("family.svg") no-repeat;*/
-/*}*/
 .ring {
     width: 130px;
     height: 130px;
@@ -105,12 +89,49 @@ ul.main-nav {
 }
 
 .group {
-/ / top: 100 %;
     margin-top: -150px;
     position: absolute;
     left: 50%;
     margin-left: -60px;
     height: 120px;
     width: 120px;
+}
+
+.item:hover {
+    opacity: 1;
+
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+
+    -webkit-transition-duration: 1s;
+    -moz-transition-duration: 1s;
+    -o-transition-duration: 1s;
+    transition-duration: 1s;
 
 }
+
+.fade-item {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.fade-enter-active, .fade-leave-active {
+    transition: all 1s;
+}
+
+.fade-enter, .fade-leave-to /* .fade-leave-active до версии 2.1.8 */
+{
+    opacity: 0;
+    /*transform: translateY(30px);*/
+}
+
+.fade-enter {
+    transform: scale3d(0.8, 0.8, 0.8);
+}
+
+.fade-leave-to {
+    transform: scale3d(1.2, 1.2, 1.2);
+}
+

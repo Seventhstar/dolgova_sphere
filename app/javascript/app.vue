@@ -1,23 +1,27 @@
 <template>
   <div id="app">
-    <p>--{{ message }}</p>
+    <sphere/>
   </div>
 </template>
 
 <script>
-export default {
-  data: function () {
-    return {
-      message: "Hello Vue!"
+  import sphere from "./packs/components/sphere";
+
+  export default {
+    data: function () {
+      return {
+      }
+    },
+    components: {
+      sphere
     }
   }
-}
 </script>
 
 <style scoped>
-p {
-  font-size: 2em;
-  text-align: center;
-}
+  p {
+    font-size: 2em;
+    text-align: center;
+  }
 
 </style>

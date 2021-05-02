@@ -49,6 +49,8 @@ ul li {
 
 ul.main-nav {
     float: right;
+    margin-top: 40px;
+    margin-right: 20px;
 }
 
 
@@ -70,12 +72,12 @@ ul.main-nav {
 
 .fade-in {
     opacity: 0;
-    transition:opacity 1s
+    transition: opacity 1s
 }
 
 .fade-in:hover {
-    opacity:100%;
-    transition:opacity 0.5s
+    opacity: 100%;
+    transition: opacity 0.5s
 }
 
 .family {

@@ -1,0 +1,151 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+
+body {
+  font-family: 'Forum', 'Forum', cursive;
+}
+
+ul {
+  color: #1a6c77;
+  list-style: none;
+}
+
+li:hover {
+  color: blue;
+  cursor: pointer;
+}
+
+
+#main-nav {
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  margin-left: 50px;
+  width: 450px;
+  float: left;
+  display: table-cell;
+}
+
+ul.main-nav {
+  float: right;
+  margin-top: 40px;
+  margin-right: 20px;
+
+  & li {
+    display: inline-block;
+    margin-right: 5px;
+    padding: 3px;
+    letter-spacing: .1em;
+  }
+}
+
+
+#sphere {
+  width: 50%;
+  /*max-width: 640px;*/
+  margin: 80px auto;
+  display: block;
+  /*float: left;*/
+}
+
+/*#description {*/
+/*    width: 50%;*/
+/*    margin: 80px auto;*/
+/*    display: block;*/
+/*    float: left;*/
+/*}*/
+
+.ring {
+  width: 130px;
+  height: 130px;
+  left: 50%;
+  position: absolute;
+  margin-top: -55px;
+  margin-left: -65px;
+  opacity: 0;
+}
+
+.fade-in {
+  opacity: 0;
+  transition: opacity 1s
+}
+
+.fade-in:hover {
+  opacity: 100%;
+  transition: opacity 0.5s
+}
+
+.family {
+  position: absolute;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -60px;
+  height: 120px;
+  width: 120px;
+  display: block;
+}
+
+.group {
+  margin-top: -150px;
+  position: absolute;
+  left: 50%;
+  margin-left: -60px;
+  height: 120px;
+  width: 120px;
+}
+
+.item:hover {
+  opacity: 1;
+  cursor: pointer;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+
+  -webkit-transition-duration: 1s;
+  -moz-transition-duration: 1s;
+  -o-transition-duration: 1s;
+  transition-duration: 1s;
+
+}
+
+.fade-item {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: all 1s;
+}
+
+.fade-enter, .fade-leave-to /* .fade-leave-active до версии 2.1.8 */
+{
+  opacity: 0;
+  /*transform: translateY(30px);*/
+}
+
+.fade-enter {
+  transform: scale3d(0.8, 0.8, 0.8);
+}
+
+.fade-leave-to {
+  transform: scale3d(1.2, 1.2, 1.2);
+}
+

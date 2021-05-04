@@ -1,6 +1,6 @@
 /*
   Place all the styles related to the matching controller here.
-  They will automatically be included in application.css.
+  They will automatically be included in application.scss.
 */
 
 
@@ -27,12 +27,14 @@ ul.main-nav {
   border-radius: 8px;
 }
 
+
+
 .about_card, .we_card, .footer_card {
   display: grid;
   background-color: white;
   padding: 20px 20px 30px 20px;
   margin: 40px auto;
-  max-width: 1200px;
+
   -webkit-box-shadow: 7px 7px 3px 0 rgba(0, 0, 0, 0.08);
   -moz-box-shadow: 7px 7px 3px 0 rgba(0, 0, 0, 0.08);
   box-shadow: 7px 7px 3px 0 rgba(0, 0, 0, 0.08);
@@ -43,6 +45,8 @@ ul.main-nav {
     margin: 13px 10px 0 22px;
   }
 }
+
+
 
 .footer_card {
   grid-template-columns: 1fr;

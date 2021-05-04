@@ -26,7 +26,7 @@
 <script>
   export default {
     name: 'SphereIcon',
-    props: ['fields'],
+    props: ['fields', 'size'],
     data: function () {
       return {
         windowHeight: window.innerHeight,
@@ -72,7 +72,7 @@
       },
 
       yPos: function () {
-        return (this.minSize / 2) * Math.sin(this.fields.degree * Math.PI / 180) - this.iconSize / 2
+        return (this.minSize / 2) * Math.sin(this.fields.degree * Math.PI / 180) - this.iconSize / 2 + this.size/2;
       },
 
       iconStyle: function () {
@@ -80,7 +80,8 @@
                 height: ${this.iconSize}px;
 	              margin-top: ${this.yPos}px;
 	              margin-left: ${this.xPos}px;
-	              top: 50%; left: 50%; position: absolute`
+
+	              left: 50%; position: absolute`
       },
 
       ringStyle: function () {
@@ -88,7 +89,8 @@
                 height: ${this.iconSize}px;
 	              margin-top: ${this.yPos}px;
 	              margin-left: ${this.xPos}px;
-	              top: 50%; left: 50%; position: absolute`
+
+	              left: 50%; position: absolute`
       },
 
       childClass: function () {
@@ -99,7 +101,8 @@
         return `
               margin-top: ${this.yPos + this.iconSize / 4}px;
               margin-left: ${this.xPos + this.iconSize}px;
-              top: 50%; left: 50%; position: absolute`
+
+              left: 50%; position: absolute`
       },
 
 

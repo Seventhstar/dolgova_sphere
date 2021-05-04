@@ -1,0 +1,59 @@
+/* For Mobile */
+@media screen and (max-width: 540px) {
+  .about_card, .we_card, .footer_card {
+    max-width: 95%;
+  }
+
+  .logo {
+    max-width: 90%;
+    margin-left: 10px !important;
+  }
+
+  .we_card_img {
+    width: 90%
+  }
+
+  .main-nav {
+    margin-top: 10px !important;
+    margin-right: 5px !important;
+    padding-inline-start: 30px;
+
+  }
+
+  #main-nav {
+    flex-direction: column;
+  }
+
+  #sphere_container #sphere {
+    margin-top: 140px !important;
+  }
+}
+
+
+@media screen and (max-width: 1200px) {
+  .logo {
+    max-width: 90%;
+    margin-left: 10px !important;
+  }
+
+  .main-nav {
+    margin-top: 10px !important;
+    margin-right: 5px !important;
+    padding-inline-start: 30px;
+  }
+
+  #sphere {
+    margin: 30px auto !important;
+  }
+
+  .we_card_img {
+    max-width: 400px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .about_card, .we_card, .footer_card {
+    max-width: 1200px;
+  }
+
+}

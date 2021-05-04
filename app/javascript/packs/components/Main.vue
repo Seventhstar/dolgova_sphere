@@ -1,13 +1,9 @@
 <template>
-  <div>
+  <div id="sphere_container" style="width: 100%">
 <!--    <span id="width">{{txt}} - {{idx}} - activeNumber:{{activeNumber}}</span>-->
-    <div id="sphere-grid">
-      <div id="sphere" :style="leftDivStyle">
-        <img :src="require('images/sphera_bold-01.svg')" id="imgSphere" :style="sphereStyle" alt="сфера"/>
-        <sphere-icon :fields="icon" v-for="icon in iconsData" :key="icon.degree"/>
-      </div>
-      <div id="description" :style="rightDivStyle">
-      </div>
+    <div id="sphere" :style="leftDivStyle">
+      <img :src="require('images/sphera_bold-01.svg')" id="imgSphere" :style="sphereStyle" alt="сфера"/>
+      <sphere-icon :fields="icon" v-for="icon in iconsData" :key="icon.degree" :size="minSize"/>
     </div>
   </div>
 </template>
@@ -73,8 +69,9 @@
     computed: {
       sphereStyle: function () {
         return `width: ${this.minSize}px; height: ${this.minSize}px;
-	      margin-top: -${this.minSize / 2}px; margin-left: -${this.minSize / 2}px;
-	      top: 50%; left: 50%; position: absolute`
+
+	      margin-left: -${this.minSize / 2}px;
+	      left: 50%; position: absolute`
       },
 
       leftDivStyle: function () {
@@ -123,8 +120,8 @@
       },
 
       onResize() {
-        this.windowHeight = window.innerHeight
-        this.windowWidth = window.innerWidth
+        this.windowHeight = document.body.offsetHeight
+        this.windowWidth = document.body.clientWidth
         this.minSize = Math.min(window.innerHeight / 1.3, window.innerWidth / 1.3);
         this.iconSize = this.minSize / 7;
       }

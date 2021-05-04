@@ -2,6 +2,26 @@
 @media screen and (max-width: 540px) {
   .about_card, .we_card, .footer_card {
     max-width: 95%;
+    padding: 4px 5px 0 4px !important;
+    margin: 20px auto !important;
+    font-size: 14px !important;
+
+    -webkit-box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.08);
+    -moz-box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.08);
+    box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.08);
+  }
+
+  p {
+    margin-block-start: 0.5em !important;
+    margin-block-end: .5em !important;
+  }
+
+  .about_card img, .we_card img, .footer_card img {
+    margin: 8px 4px 0 4px !important;
+  }
+
+  .about_text {
+    padding: 0 8px 0 8px !important;
   }
 
   .logo {
@@ -13,8 +33,8 @@
     width: 90%
   }
 
-  .main-nav {
-    margin-top: 10px !important;
+  #main-nav .main-nav {
+    margin-top: 0 !important;
     margin-right: 5px !important;
     padding-inline-start: 30px;
 
@@ -25,7 +45,7 @@
   }
 
   #sphere_container #sphere {
-    margin-top: 140px !important;
+    margin-top: 100px !important;
   }
 }
 

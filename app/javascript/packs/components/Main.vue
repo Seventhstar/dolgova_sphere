@@ -1,6 +1,6 @@
 <template>
   <div id="sphere_container" style="width: 100%">
-<!--    <span id="width">{{txt}} - {{idx}} - activeNumber:{{activeNumber}}</span>-->
+    <!--    <span id="width">{{txt}} - {{idx}} - activeNumber:{{activeNumber}}</span>-->
     <div id="sphere" :style="leftDivStyle">
       <img :src="require('images/sphera_bold-01.svg')" id="imgSphere" :style="sphereStyle" alt="сфера"/>
       <sphere-icon :fields="icon" v-for="icon in iconsData" :key="icon.degree" :size="minSize"/>
@@ -122,7 +122,9 @@
       onResize() {
         this.windowHeight = document.body.offsetHeight
         this.windowWidth = document.body.clientWidth
-        this.minSize = Math.min(window.innerHeight / 1.3, window.innerWidth / 1.3);
+        this.minSize = Math.min(window.innerHeight / 1.3, window.innerWidth / 1.3) - 10;
+        //console.log('this.minSize', this.minSize);
+        if (this.minSize > this.windowWidth) this.minSize = this.windowWidth - 40;
         this.iconSize = this.minSize / 7;
       }
     }

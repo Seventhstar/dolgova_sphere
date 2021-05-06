@@ -14,6 +14,7 @@
  *= require_self
  */
 
+@import "common.scss";
 
 body {
   font-family: 'Forum', 'Forum', cursive;
@@ -109,5 +110,5 @@ body {
   display: inline-grid;
   left: 50%; position: absolute;
   font-size: 22px;
-  color: #1a6c77;
+  color: $main-color;
 }

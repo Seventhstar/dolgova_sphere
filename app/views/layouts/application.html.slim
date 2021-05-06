@@ -7,13 +7,18 @@ html
     link rel="preconnect" href="https://fonts.gstatic.com"
     link href="https://fonts.googleapis.com/css2?family=Forum&display=swap" rel="stylesheet"
     link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet"
+    link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet"
     = csrf_meta_tags
     = csp_meta_tag
-    = favicon_link_tag 'da.png'
+    = favicon_link_tag 'leaf.svg'
 
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
-    // = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
-    
+  // = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+
   body
+    p class="notice"
+      = notice
+    p class="alert"
+      = alert
     = render "top_menu"
     = yield

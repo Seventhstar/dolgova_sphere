@@ -1,3 +1,5 @@
+@import "common.scss";
+
 #main-nav {
   height: 80px;
   display: flex;
@@ -12,7 +14,7 @@
 }
 
 ul.main-nav {
-  color: #1a6c77;
+  color: $main-color;
   list-style: none;
 
   float: right;
@@ -23,10 +25,13 @@ ul.main-nav {
     display: inline-block;
     margin-right: 5px;
     padding: 3px;
-    letter-spacing: .1em;
-    & :hover {
-        color: blue;
-        cursor: pointer;
+    letter-spacing: .05em;
+    font-weight: bold;
+
+    &:hover {
+      color: $hover-color;
+      cursor: pointer;
+      text-decoration: underline;
     }
   }
 }

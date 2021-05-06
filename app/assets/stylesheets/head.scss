@@ -1,0 +1,32 @@
+#main-nav {
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  margin-left: 50px;
+  width: 450px;
+  float: left;
+  display: table-cell;
+}
+
+ul.main-nav {
+  color: #1a6c77;
+  list-style: none;
+
+  float: right;
+  margin-top: 40px;
+  margin-right: 20px;
+
+  & li {
+    display: inline-block;
+    margin-right: 5px;
+    padding: 3px;
+    letter-spacing: .1em;
+    & :hover {
+        color: blue;
+        cursor: pointer;
+    }
+  }
+}

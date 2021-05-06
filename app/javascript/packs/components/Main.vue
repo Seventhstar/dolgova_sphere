@@ -1,6 +1,7 @@
 <template>
   <div id="sphere_container" style="width: 100%">
     <!--    <span id="width">{{txt}} - {{idx}} - activeNumber:{{activeNumber}}</span>-->
+    <icon-info :size="minSize" :text="info" :show="showText"/>
     <div id="sphere" :style="leftDivStyle">
       <img :src="require('images/sphera_bold-01.svg')" id="imgSphere" :style="sphereStyle" alt="сфера"/>
       <sphere-icon :fields="icon" v-for="icon in iconsData" :key="icon.degree" :size="minSize"/>
@@ -10,10 +11,11 @@
 
 <script>
   import SphereIcon from "./SphereIcon";
+  import IconInfo from "./IconInfo";
 
   export default {
     name: 'Main',
-    components: {SphereIcon},
+    components: {SphereIcon, IconInfo},
     data: function () {
       return {
         windowHeight: window.innerHeight,
@@ -67,21 +69,28 @@
     },
 
     computed: {
+      showText: function () {
+        if (this.activeNumber >= 0 && this.activeNumber < this.iconsData.length)
+          return this.iconsData[this.activeNumber].active
+        return false
+      },
+
+      info: function () {
+        if (this.activeNumber >= 0 && this.activeNumber < this.iconsData.length)
+          return this.iconsData[this.activeNumber].title
+        return ''
+      },
+
       sphereStyle: function () {
         return `width: ${this.minSize}px; height: ${this.minSize}px;
-
-	      margin-left: -${this.minSize / 2}px;
-	      left: 50%; position: absolute`
+	              margin-left: -${this.minSize / 2}px;
+	              left: 50%; position: absolute`
       },
 
       leftDivStyle: function () {
         return `width: 50%;
                 height: ${this.minSize}px;
                 min-width: ${this.minSize}px`
-      },
-
-      rightDivStyle: function () {
-        return 'width 50%'
       },
 
     },
@@ -122,9 +131,9 @@
       onResize() {
         this.windowHeight = document.body.offsetHeight
         this.windowWidth = document.body.clientWidth
-        this.minSize = Math.min(window.innerHeight / 1.3, window.innerWidth / 1.3) - 10;
-        //console.log('this.minSize', this.minSize);
-        if (this.minSize > this.windowWidth) this.minSize = this.windowWidth - 40;
+        let minSize = Math.min(window.innerHeight / 1.3, window.innerWidth / 1.3) - 10;
+        if (minSize > this.windowWidth) minSize = this.windowWidth - 40;
+        this.minSize = minSize;
         this.iconSize = this.minSize / 7;
       }
     }

@@ -15,10 +15,10 @@
            v-show="fields.active || showChild"
            @mouseover="showChild = true"
            @mouseout="showChild = false" alt="ring"/>
-      <span class="span-text" :key="10"
-            v-show="fields.active || showChild"
-            :style="textStyle">{{fields.title}}
-      </span>
+<!--      <span class="span-text" :key="10"-->
+<!--            v-show="fields.active || showChild"-->
+<!--            :style="textStyle">{{fields.title}}-->
+<!--      </span>-->
     </transition-group>
   </div>
 </template>
@@ -80,7 +80,6 @@
                 height: ${this.iconSize}px;
 	              margin-top: ${this.yPos}px;
 	              margin-left: ${this.xPos}px;
-
 	              left: 50%; position: absolute`
       },
 
@@ -89,7 +88,6 @@
                 height: ${this.iconSize}px;
 	              margin-top: ${this.yPos}px;
 	              margin-left: ${this.xPos}px;
-
 	              left: 50%; position: absolute`
       },
 
@@ -101,11 +99,8 @@
         return `
               margin-top: ${this.yPos + this.iconSize / 4}px;
               margin-left: ${this.xPos + this.iconSize}px;
-
               left: 50%; position: absolute`
       },
-
-
     },
 
     beforeDestroy() {

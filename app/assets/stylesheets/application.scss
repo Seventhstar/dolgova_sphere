@@ -19,58 +19,11 @@ body {
   font-family: 'Forum', 'Forum', cursive;
 }
 
-ul {
-  color: #1a6c77;
-  list-style: none;
-}
-
-li:hover {
-  color: blue;
-  cursor: pointer;
-}
-
-
-#main-nav {
-  height: 80px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.logo {
-  margin-left: 50px;
-  width: 450px;
-  float: left;
-  display: table-cell;
-}
-
-ul.main-nav {
-  float: right;
-  margin-top: 40px;
-  margin-right: 20px;
-
-  & li {
-    display: inline-block;
-    margin-right: 5px;
-    padding: 3px;
-    letter-spacing: .1em;
-  }
-}
-
-
 #sphere {
   width: 50%;
-  /*max-width: 640px;*/
   margin: 80px auto;
   display: block;
-  /*float: left;*/
 }
-
-/*#description {*/
-/*    width: 50%;*/
-/*    margin: 80px auto;*/
-/*    display: block;*/
-/*    float: left;*/
-/*}*/
 
 .ring {
   width: 130px;
@@ -92,24 +45,24 @@ ul.main-nav {
   transition: opacity 0.5s
 }
 
-.family {
-  position: absolute;
-  left: 50%;
-  margin-top: -50px;
-  margin-left: -60px;
-  height: 120px;
-  width: 120px;
-  display: block;
-}
-
-.group {
-  margin-top: -150px;
-  position: absolute;
-  left: 50%;
-  margin-left: -60px;
-  height: 120px;
-  width: 120px;
-}
+//.family {
+//  position: absolute;
+//  left: 50%;
+//  margin-top: -50px;
+//  margin-left: -60px;
+//  height: 120px;
+//  width: 120px;
+//  display: block;
+//}
+//
+//.group {
+//  margin-top: -150px;
+//  position: absolute;
+//  left: 50%;
+//  margin-left: -60px;
+//  height: 120px;
+//  width: 120px;
+//}
 
 .item:hover {
   opacity: 1;
@@ -149,3 +102,12 @@ ul.main-nav {
   transform: scale3d(1.2, 1.2, 1.2);
 }
 
+.info-text{
+  z-index: 201;
+  align-items: center;
+  text-align: center;
+  display: inline-grid;
+  left: 50%; position: absolute;
+  font-size: 22px;
+  color: #1a6c77;
+}

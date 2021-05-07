@@ -71,9 +71,14 @@
   }
 }
 
+@media screen and (max-width: 1200px) {
+  .about_card, .we_card, .footer_card {
+    max-width: 960px;
+  }
+}
+
 @media screen and (min-width: 1200px) {
   .about_card, .we_card, .footer_card {
     max-width: 1200px;
   }
-
 }

@@ -151,6 +151,7 @@
         this.windowWidth = document.body.clientWidth
         let minSize = Math.min(window.innerHeight / 1.3, window.innerWidth / 1.3) - 10;
         if (minSize > this.windowWidth) minSize = this.windowWidth - 40;
+        minSize -= 64;
         this.minSize = minSize;
         this.iconSize = this.minSize / 7;
       }

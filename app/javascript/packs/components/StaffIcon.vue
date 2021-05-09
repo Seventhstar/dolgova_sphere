@@ -40,7 +40,8 @@
     },
 
     created() {
-      // console.log('start app')
+      this.minSize = this.size;
+
       this.onResize();
       this.createText();
       setInterval(() => this.run(), 500);
@@ -50,15 +51,22 @@
       windowWidth(newW, oldW) {
         this.createText();
       },
+
       windowHeight(newHeight, oldHeight) {
         this.createText();
+      },
+
+      size(newVal) {
+        this.minSize = newVal;
+        this.onResize();
       }
+
     },
 
     mounted() {
-      this.$nextTick(() => {
-        window.addEventListener('resize', this.onResize);
-      })
+      // this.$nextTick(() => {
+      //   window.addEventListener('resize', this.onResize);
+      // })
       this.run();
     },
 
@@ -86,10 +94,10 @@
       },
 
       ringStyle: function () {
-        return `width: ${this.iconSize}px;
-                height: ${this.iconSize}px;
-	              margin-top: ${this.yPos}px;
-	              margin-left: ${this.xPos}px;
+        return `width: ${this.iconSize + 8}px;
+                height: ${this.iconSize + 8}px;
+	              margin-top: ${this.yPos - 4}px;
+	              margin-left: ${this.xPos - 4}px;
 	              left: 50%; position: absolute`
       },
 
@@ -134,8 +142,8 @@
       onResize() {
         this.windowWidth = window.innerWidth
         this.windowHeight = window.innerHeight
-        this.minSize = Math.min(window.innerHeight / 1.3, window.innerWidth / 1.3);
-        this.iconSize = this.minSize / 7;
+        // this.minSize = Math.min(window.innerHeight / 1.3, window.innerWidth / 1.3);
+        this.iconSize = this.minSize / 5.5;
       }
     }
   }

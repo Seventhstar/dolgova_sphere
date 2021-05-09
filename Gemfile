@@ -55,3 +55,4 @@ gem 'sass-rails', '~> 5.0'
 
 gem 'devise'
 gem 'activeadmin'
+gem 'simple-navigation'

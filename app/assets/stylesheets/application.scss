@@ -16,6 +16,16 @@
 
 @import "common.scss";
 
+#main_container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+#main_container ul {
+
+}
+
 body {
   font-family: 'Forum', 'Forum', cursive;
 }
@@ -103,12 +113,55 @@ body {
   transform: scale3d(1.2, 1.2, 1.2);
 }
 
-.info-text{
+.info-text {
   z-index: 201;
   align-items: center;
   text-align: center;
   display: inline-grid;
-  left: 50%; position: absolute;
+  left: 50%;
+  position: absolute;
   font-size: 22px;
   color: $main-color;
+}
+
+.staff-name {
+  z-index: 201;
+  align-items: center;
+  text-align: center;
+  display: inline-grid;
+  left: 50%;
+  position: absolute;
+  font-size: 14px;
+  color: $main-color;
+}
+
+.staff-course {
+  z-index: 201;
+  align-items: center;
+  text-align: center;
+  display: inline-grid;
+  left: 50%;
+  position: absolute;
+  font-size: 12px;
+  color: $main-color;
+}
+
+.h3 {
+  font-family: 'Forum';
+  font-size: 22px;
+  margin-bottom: 12px !important;
+}
+
+.icon {
+  height: 16px;
+  width: 16px;
+}
+
+.icon-20 {
+  height: 28px;
+  width: 28px;
+}
+
+.right {
+  float: right;
 }

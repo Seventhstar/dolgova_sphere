@@ -1,44 +1,35 @@
 @import "common.scss";
 
-
-
-#main-nav {
-  height: 80px;
+.main-nav {
+  //height: 80px;
   display: block;
   font-family: 'Poiret One', cursive;
   letter-spacing: .05em;
   font-weight: bold;
-}
-
-.logo {
-  margin-left: 50px;
-  width: 450px;
-  float: left;
-}
-
-ul.main-nav {
+  //margin-right: 50px;
   float: right;
+  font-size: 14px;
 }
-
 
 .login-info {
   display: grid;
-  grid-template-columns: 1fr 30px 30px;
+  grid-template-columns: 1fr 26px 26px;
   grid-column-gap: 8px;
   padding-top: 6px;
   line-height: 1;
   text-align: end;
-  margin-right: 28px;
+  margin: 12px 0 16px 0;
 }
 
 .login-info img {
-  height: 24px;
+  height: 18px;
 }
 
 .user_name {
-  padding-top: 5px;
+  padding-top: 2px;
+  font-size: 16px;
 }
 
 #login a img {
-  width: 32px
+  width: 18px
 }

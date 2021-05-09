@@ -33,13 +33,6 @@
     width: 90%
   }
 
-  #main-nav .main-nav {
-    margin-top: 0 !important;
-    margin-right: 5px !important;
-    padding-inline-start: 30px;
-
-  }
-
   #main-nav {
     flex-direction: column;
   }
@@ -56,10 +49,8 @@
     margin-left: 10px !important;
   }
 
-  .main-nav {
-    margin-top: 10px !important;
-    margin-right: 5px !important;
-    padding-inline-start: 30px;
+  .staff-page .staff_card, .staff-page .card {
+    max-width: 90%;
   }
 
   #sphere {
@@ -75,6 +66,10 @@
   .about_card, .we_card, .footer_card {
     max-width: 960px;
   }
+  .logo {
+    width: 300px !important;
+  }
+
 }
 
 @media screen and (min-width: 1200px) {

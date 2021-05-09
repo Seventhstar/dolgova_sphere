@@ -1,2 +1,7 @@
-h1 Team#index
-p Find me in app/views/team/index.html.slim
+#app
+= javascript_pack_tag 'team'
+
+= content_tag :div, id: 'staff-data',
+        data: {users: for_vue(User.staff, [:course])\
+        } do
+

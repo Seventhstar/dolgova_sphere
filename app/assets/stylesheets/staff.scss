@@ -1,0 +1,71 @@
+@import "common.scss";
+
+.staff-page {
+  display: inline-grid;
+}
+
+.staff_card {
+  display: inline-block;
+  min-width: 100%;
+  background-color: white;
+  margin: 20px auto 40px auto;
+  -webkit-box-shadow: 7px 7px 3px 0 #1a6c772b;
+  -moz-box-shadow: 7px 7px 3px 0 #1a6c772b;
+  box-shadow: 7px 7px 3px 0 #1a6c772b;
+  border: 1px solid $main-color;
+  //border-radius: 4px;
+  border-radius: 0 0 4px 4px;
+  font-size: 14px;
+  color: #383434;
+}
+
+.staff_card .grid {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  grid-column-gap: 20px;
+  padding: 20px 20px 10px 20px;
+}
+
+.card-body {
+  box-sizing: border-box;
+  margin: 20px;
+}
+
+.card {
+  grid-template-columns: 1fr;
+  box-sizing: border-box;
+  margin: 20px;
+}
+
+.staff-img {
+  max-width: 100%;
+}
+
+.staff-page .staff-card-head {
+  display: flow-root;
+  box-sizing: border-box;
+  font-family: 'Forum', cursive;
+  color: white;
+  background-color: #82b6bd;
+  padding: 10px 20px;
+  //margin-left: -1px;
+  font-size: 16px;
+  //border-radius: 4px 4px 0 0;
+
+  .icon-20 {
+    padding-top: 8px;
+  }
+
+  .h3 {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Forum', cursive;
+    font-size: 18px;
+    margin-bottom: 4px !important;
+    font-weight: 600;
+  }
+
+  .h4 {
+    margin-top: -18px;
+  }
+}

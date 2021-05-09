@@ -1,6 +1,6 @@
 <template>
   <div>
-    <img :src="require('images/'+fields.name+'.svg')"
+    <img :src="require('images/staff-sm-'+fields.id+'.jpg')"
          id="iconChild"
          :style="iconStyle"
          @mouseover="mouseIn()"
@@ -22,7 +22,7 @@
 
 <script>
   export default {
-    name: 'SphereIcon',
+    name: 'StaffIcon',
     props: ['fields', 'size', 'id'],
     data: function () {
       return {
@@ -81,6 +81,7 @@
                 height: ${this.iconSize}px;
 	              margin-top: ${this.yPos}px;
 	              margin-left: ${this.xPos}px;
+	              border-radius: 50%;
 	              left: 50%; position: absolute`
       },
 

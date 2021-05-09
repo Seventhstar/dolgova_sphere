@@ -58,8 +58,6 @@
 </script>
 
 <style scoped>
-  .info-border {
-    border: 2px solid #1a6c77;
-  }
+
 
 </style>

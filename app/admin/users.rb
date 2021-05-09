@@ -25,8 +25,10 @@ ActiveAdmin.register User do
       f.input :name
       f.input :is_staff, as: :boolean
       f.input :is_admin, as: :boolean
-      f.input :password if f.object.new_record?
-      f.input :password_confirmation if f.object.new_record?
+#      f.input :password if f.object.new_record?
+#      f.input :password_confirmation if f.object.new_record?
+      f.input :password 
+      f.input :password_confirmation 
     end
     f.actions
   end

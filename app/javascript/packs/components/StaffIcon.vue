@@ -2,6 +2,7 @@
   <div>
     <img :src="require('images/staff-sm-'+fields.id+'.jpg')"
          :style="imgStyle"
+         @click="iconClick"
          v-on:mouseover="mouseOver"
          v-on:mouseleave="mouseLeave"/>
     <a :href="href" :style="iconStyle"/>
@@ -122,6 +123,10 @@
         this.$emit('iconFocus', {
           id: this.id
         })
+      },
+
+      iconClick() {
+        window.location.href = this.href
       },
 
       run() {

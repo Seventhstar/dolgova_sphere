@@ -1,6 +1,5 @@
 @import "common.scss";
 
-
 .span-text {
   color: $main-color;
   background: white;
@@ -8,8 +7,6 @@
   padding: 10px;
   border-radius: 8px;
 }
-
-
 
 .about_card, .we_card, .footer_card {
   display: grid;
@@ -28,8 +25,6 @@
   }
 }
 
-
-
 .footer_card {
   grid-template-columns: 1fr;
   border: 1px solid #eee;
@@ -37,7 +32,6 @@
 
 .about_card {
   grid-template-columns: 1fr 436px;
-
 }
 
 .we_card {
@@ -55,7 +49,6 @@
   padding: 10px 20px 0 20px;
 
   & li {
-    //float: left;
     margin-bottom: 4px;
   }
 }

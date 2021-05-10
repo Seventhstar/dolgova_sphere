@@ -1,10 +1,11 @@
 <template>
   <div id="sphere_container" style="width: 100%">
-    <!--    <span id="width">{{txt}} - {{idx}} - activeNumber:{{activeNumber}}</span>-->
-    <staff-info :size="minSize" :text="info" :course="course" :show="showText"/>
+    <!--    <span id="width">{{txt}} - {{idx}} - activeNumber:{{iconsData[0].active}}, {{iconsData[1].active}}, {{iconsData[2].active}}</span>-->
+    <staff-info :size="minSize" :text="info" :course="course" :show="showText || cursorOnIcon"/>
     <div id="sphere" :style="leftDivStyle">
       <img :src="require('images/sphera_bold-01.svg')" id="imgSphere" :style="sphereStyle" alt="сфера"/>
-      <staff-icon :fields="icon" v-for="icon in iconsData" :key="icon.degree" :size="minSize"/>
+      <staff-icon :fields="icon" v-for="icon in iconsData" :key="icon.degree" :size="minSize"
+                  v-on:iconFocus="onIconHover"/>
     </div>
   </div>
 </template>
@@ -21,6 +22,7 @@
         windowHeight: window.innerHeight,
         windowWidth: window.innerWidth,
         minSize: 900,
+        cursorOnIcon: false,
         iconsData: [
           {degree: 0, name: 'child', title: 'Детская и подростковая психотерапия', active: false},
           {
@@ -119,6 +121,10 @@
 
     methods: {
       run() {
+        if (this.cursorOnIcon) {
+          this.idx = 0
+          return
+        }
         this.idx += 1;
         if (this.idx === 3) {
           this.iconsData.forEach(i => i.active = false)
@@ -130,16 +136,22 @@
           this.activeNumber = newActive
           this.iconsData[this.activeNumber].active = true
         }
-
-        // console.log('this.idx', this.idx)
       },
 
-      enter() {
-        //this.idx = Math.min(this.items.length, this.idx + 1);
-      },
+      onIconHover(data) {
+        this.iconsData.forEach(i => i.active = false)
+        if (data === null) {
+          this.cursorOnIcon = false
+          return
+        }
 
-      leave() {
-        //this.idx = Math.max(0, this.idx - 1);
+        let indexA = this.iconsData.filter(f => f.id === data.id);
+        if (indexA.length > 0) {
+          let index = this.iconsData.indexOf(indexA[0]);
+          this.activeNumber = index
+          this.iconsData[index].active = true;
+          this.cursorOnIcon = true
+        }
       },
 
       createText() {

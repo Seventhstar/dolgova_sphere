@@ -9,11 +9,10 @@
   min-width: 100%;
   background-color: white;
   margin: 20px auto 40px auto;
-  -webkit-box-shadow: 7px 7px 3px 0 #1a6c772b;
-  -moz-box-shadow: 7px 7px 3px 0 #1a6c772b;
-  box-shadow: 7px 7px 3px 0 #1a6c772b;
+  -webkit-box-shadow: 7px 7px 3px 0 $shadow-color;
+  -moz-box-shadow: 7px 7px 3px 0 $shadow-color;
+  box-shadow: 7px 7px 3px 0 $shadow-color;
   border: 1px solid $main-color;
-  //border-radius: 4px;
   border-radius: 0 0 4px 4px;
   font-size: 14px;
   color: #383434;
@@ -46,7 +45,7 @@
   box-sizing: border-box;
   font-family: 'Forum', cursive;
   color: white;
-  background-color: #82b6bd;
+  background-color: $head-background-color;
   padding: 10px 20px;
   //margin-left: -1px;
   font-size: 16px;

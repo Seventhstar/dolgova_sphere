@@ -1,7 +1,7 @@
 <template>
   <div>
     <span :key="0" class="info-border" :style="borderStyle()"/>
-    <transition-group name="fade">
+    <transition-group name="slide-fade">
       <span :key="1" class="info-text" :style="infoStyle()" v-show="show">{{text}}</span>
     </transition-group>
   </div>
@@ -13,6 +13,7 @@
     props: ['size', 'text', 'show'],
     data: function () {
       return {
+        textSize: 22,
         width: 0,
         height: 0,
       }
@@ -32,6 +33,11 @@
       calcSises: function () {
         this.width = this.size / 1.7;
         this.height = this.size / 5;
+
+        if (this.size < 400) this.textSize = 16;
+        else if (this.size < 600) this.textSize = 18;
+        else this.textSize = 22;
+
       },
 
       infoStyle: function () {
@@ -39,6 +45,7 @@
                 height: ${this.height}px;
 	              margin-left: -${this.width / 2}px;
 	              margin-top: ${this.size / 2 - this.height / 2}px;
+	              font-size: ${this.textSize}px;
 	              `
       },
 

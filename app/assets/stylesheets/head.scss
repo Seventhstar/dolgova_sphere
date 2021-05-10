@@ -24,7 +24,12 @@
 //}
 
 .menu li.active, .menu li:hover {
-  border-bottom: 1px solid $hover-color;
+  border-bottom: 1px solid $head-background-color;
+  color: $head-background-color;
+
+  a {
+    color: $head-background-color;
+  }
 }
 
 
@@ -39,6 +44,7 @@
     &:hover {
       //text-decoration: underline;
       color: $hover-color;
+
     }
   }
 }

@@ -1,8 +1,8 @@
 <template>
   <div>
     <span :key="0" class="info-border" :style="borderStyle()"/>
-    <transition-group name="fade">
-      <span :key="1" class="staff-name" :style="infoStyle(0)" v-show="show">{{text}}</span>
+    <transition-group name="slide-fade">
+      <span :key="1" class="staff-name" :style="infoHeadStyle()" v-show="show">{{text}}</span>
       <span :key="2" class="staff-course" :style="infoStyle(1)" v-show="show">{{course}}</span>
     </transition-group>
   </div>
@@ -16,6 +16,8 @@
       return {
         width: 0,
         height: 0,
+        headFontSize: 26,
+        fontSize: 14
       }
     },
 
@@ -33,14 +35,39 @@
       calcSises: function () {
         this.width = this.size / 1.3;
         this.height = this.size / 3.5;
+
+        if (this.size < 400) {
+          this.headFontSize = 14;
+          this.fontSize = 8;
+        } else if (this.size < 450) {
+          this.headFontSize = 18;
+          this.fontSize = 10;
+        } else if (this.size < 500) {
+          this.headFontSize = 20;
+          this.fontSize = 14;
+        } else if (this.size < 550) {
+          this.headFontSize = 24;
+          this.fontSize = 18;
+        } else this.headFontSize = 26;
+      },
+
+      infoHeadStyle: function () {
+        return `width: ${this.width}px;
+                height: ${this.height / 2}px;
+                font-size: ${this.headFontSize}px;
+                line-height: 1.2em;
+	              margin-left: -${this.width / 2 - 2}px;
+	              margin-top: ${this.size / 2 - this.height / 2 + 2}px;
+	              `
       },
 
       infoStyle: function (row) {
         return `width: ${this.width}px;
                 height: ${this.height / 2}px;
-                background-color: #eee;
+                font-size: ${this.fontSize}px;
+                line-height: 1.2em;
 	              margin-left: -${this.width / 2 - 2}px;
-	              margin-top: ${this.size / 2 - this.height / 2 + this.height / 2 * row + 2}px;
+	              margin-top: ${this.size / 2 - this.height / 2 + this.height / 2 + 2}px;
 	              `
       },
 

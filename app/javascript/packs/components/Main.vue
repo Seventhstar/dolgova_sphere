@@ -1,10 +1,10 @@
 <template>
   <div id="sphere_container" style="width: 100%">
-    <!--    <span id="width">{{txt}} - {{idx}} - activeNumber:{{activeNumber}}</span>-->
-    <icon-info :size="minSize" :text="info" :show="showText"/>
+    <icon-info :size="minSize" :text="info" :show="showText || cursorOnIcon"/>
     <div id="sphere" :style="leftDivStyle">
       <img :src="require('images/sphera_bold-01.svg')" id="imgSphere" :style="sphereStyle" alt="сфера"/>
-      <sphere-icon :fields="icon" v-for="icon in iconsData" :key="icon.degree" :size="minSize"/>
+      <sphere-icon :fields="icon" v-for="icon in iconsData" :key="icon.value" :size="minSize"
+                   v-on:iconFocus="onIconHover"/>
     </div>
   </div>
 </template>
@@ -21,22 +21,8 @@
         windowHeight: window.innerHeight,
         windowWidth: window.innerWidth,
         minSize: 900,
-        iconsData: [
-          {degree: 0, name: 'child', title: 'Детская и подростковая психотерапия', active: false},
-          {
-            degree: 90,
-            name: 'family',
-            title: 'Психологическое консультирование и психотерапия семьи, пары',
-            active: false
-          },
-          {
-            degree: 180,
-            name: 'person',
-            title: 'Психологическое консультирование и психотерапия для взрослых',
-            active: false
-          },
-          {degree: 270, name: 'group', title: 'Групповая психотерапия', active: false}
-        ],
+        cursorOnIcon: false,
+        iconsData: [],
         activeNumber: 0,
         iconSize: 128,
         showDescription: false,
@@ -45,8 +31,22 @@
         txt: ''
       }
     },
+
     created() {
-      // console.log('start app')
+      let element = document.getElementById('courses-data')
+      let iconsData = []
+      if (element !== null) {
+        iconsData = JSON.parse(element.dataset.courses)
+        this.iconsData.length = 0
+        let degreeStep = 360 / iconsData.length
+        iconsData.forEach((u, index) => {
+          this.iconsData.push({
+            id: u.value, degree: degreeStep * index, name: "child",
+            title: u.label, active: false
+          })
+        })
+        // console.log('this.iconsData', this.iconsData)
+      }
       this.onResize();
       this.createText();
       setInterval(() => this.run(), 1000);
@@ -101,6 +101,10 @@
 
     methods: {
       run() {
+        if (this.cursorOnIcon) {
+          this.idx = 0
+          return
+        }
         this.idx += 1;
         if (this.idx === 3) {
           this.iconsData.forEach(i => i.active = false)
@@ -116,12 +120,21 @@
         // console.log('this.idx', this.idx)
       },
 
-      enter() {
-        //this.idx = Math.min(this.items.length, this.idx + 1);
-      },
+      onIconHover(data) {
+        // console.log('onIconHover(data)', data);
+        this.iconsData.forEach(i => i.active = false);
+        if (data === null) {
+          this.cursorOnIcon = false
+          return
+        }
 
-      leave() {
-        //this.idx = Math.max(0, this.idx - 1);
+        let indexA = this.iconsData.filter(f => f.id === data.id);
+        if (indexA.length > 0) {
+          let index = this.iconsData.indexOf(indexA[0]);
+          this.activeNumber = index
+          this.iconsData[index].active = true;
+          this.cursorOnIcon = true
+        }
       },
 
       createText() {

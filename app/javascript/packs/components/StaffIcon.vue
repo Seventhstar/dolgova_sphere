@@ -5,7 +5,6 @@
          @click="iconClick"
          v-on:mouseover="mouseOver"
          v-on:mouseleave="mouseLeave"/>
-    <a :href="href" :style="iconStyle"/>
 
     <transition-group name="fade" :duration="{ enter: 500, leave: 2000 }">
       <img :src="require('images/ring.svg')"
@@ -27,7 +26,6 @@
         degree: 90,
         minSize: 900,
         iconSize: 128,
-
         showChild: false
       }
     },
@@ -35,7 +33,7 @@
     created() {
       this.minSize = this.size;
       this.onResize();
-      setInterval(() => this.run(), 500);
+      // setInterval(() => this.run(), 500);
     },
 
     watch: {
@@ -46,7 +44,6 @@
     },
 
     mounted() {
-      this.run();
     },
 
     computed: {
@@ -127,11 +124,6 @@
 
       iconClick() {
         window.location.href = this.href
-      },
-
-      run() {
-        this.idx += 1;
-        if (this.idx === 6) this.idx = 0;
       },
 
       onResize() {

@@ -1,5 +1,5 @@
 class UserController < ApplicationController
-  before_action :set_user, only: [:show]
+  before_action :set_course, only: [:show]
 
   def show
   end

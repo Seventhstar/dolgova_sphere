@@ -23,22 +23,7 @@
         windowWidth: window.innerWidth,
         minSize: 900,
         cursorOnIcon: false,
-        iconsData: [
-          {degree: 0, name: 'child', title: 'Детская и подростковая психотерапия', active: false},
-          {
-            degree: 90,
-            name: 'family',
-            title: 'Психологическое консультирование и психотерапия семьи, пары',
-            active: false
-          },
-          {
-            degree: 180,
-            name: 'person',
-            title: 'Психологическое консультирование и психотерапия для взрослых',
-            active: false
-          },
-          {degree: 270, name: 'group', title: 'Групповая психотерапия', active: false}
-        ],
+        iconsData: [],
         activeNumber: 0,
         iconSize: 128,
         showDescription: false,

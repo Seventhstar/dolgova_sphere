@@ -1,5 +1,10 @@
 #app
 = javascript_pack_tag 'main'
+= content_tag :div, id: 'courses-data',
+        data: {courses: for_js(Course.all)\
+        } do
+
+
 
 .we_card.full
   .about_text

@@ -1,21 +1,17 @@
 <template>
   <div>
-    <img :src="require('images/'+fields.name+'.svg')"
-         id="iconChild"
+    <img :src="require('images/course-'+fields.id+'.svg')"
          :style="iconStyle"
-         @mouseover="mouseIn()"
-         @mouseout="mouseOut()"/>
-    <a :href="href" :style="iconStyle"></a>
+         @click="iconClick"
+         v-on:mouseover="mouseOver"
+         v-on:mouseleave="mouseLeave" alt="icon"/>
 
-    <transition-group name="fade" :duration="{ enter: 2000, leave: 2000 }">
+    <transition-group name="fade" :duration="{ enter: 500, leave: 2000 }">
       <img :src="require('images/ring.svg')"
-           id="childRing"
            :style="ringStyle"
            :key="0"
            :class="childClass"
-           v-show="fields.active || showChild"
-           @mouseover="showChild = true"
-           @mouseout="showChild = false" alt="ring"/>
+           v-show="fields.active || active" alt="ring"/>
     </transition-group>
   </div>
 </template>
@@ -26,46 +22,34 @@
     props: ['fields', 'size', 'id'],
     data: function () {
       return {
-        windowHeight: window.innerHeight,
-        windowWidth: window.innerWidth,
         degree: 90,
         minSize: 900,
         iconSize: 128,
-        items: [...Array(4)].map((n, i) => i + 1),
-        idx: 0,
-        ringsVisible: [false, false, false, false],
         showChild: false,
+        active: false,
         txt: ''
       }
     },
 
     created() {
-      // console.log('start app')
+      this.minSize = this.size;
       this.onResize();
-      this.createText();
-      setInterval(() => this.run(), 500);
     },
 
     watch: {
-      windowWidth(newW, oldW) {
-        this.createText();
-      },
-      windowHeight(newHeight, oldHeight) {
-        this.createText();
+      size(newVal) {
+        this.minSize = newVal;
+        this.onResize();
       }
     },
 
     mounted() {
-      this.$nextTick(() => {
-        window.addEventListener('resize', this.onResize);
-      })
-      this.run();
     },
 
     computed: {
 
       href: function () {
-        return '/team/' + this.fields.id
+        return '/course/' + this.fields.id
       },
 
       xPos: function () {
@@ -81,14 +65,15 @@
                 height: ${this.iconSize}px;
 	              margin-top: ${this.yPos}px;
 	              margin-left: ${this.xPos}px;
+	              z-index: 200;
 	              left: 50%; position: absolute`
       },
 
       ringStyle: function () {
-        return `width: ${this.iconSize}px;
-                height: ${this.iconSize}px;
-	              margin-top: ${this.yPos}px;
-	              margin-left: ${this.xPos}px;
+        return `width: ${this.iconSize + 8}px;
+                height: ${this.iconSize + 8}px;
+	              margin-top: ${this.yPos - 4}px;
+	              margin-left: ${this.xPos - 4}px;
 	              left: 50%; position: absolute`
       },
 
@@ -104,30 +89,21 @@
       },
     },
 
-    beforeDestroy() {
-      window.removeEventListener('resize', this.onResize);
-    },
-
     methods: {
-      mouseOut() {
-        this.showChild = false
+      iconClick() {
+        window.location.href = this.href
       },
 
-      mouseIn() {
-        this.showChild = true
-        this.$emit('focus', {
-          email: this.email
+      mouseOver: function () {
+        this.active = true;
+        this.$emit('iconFocus', {
+          id: this.fields.id
         })
       },
 
-
-      run() {
-        this.idx += 1;
-        if (this.idx === 6) this.idx = 0;
-      },
-
-      createText() {
-        this.txt = `w ${this.windowWidth} h ${this.windowHeight}`;
+      mouseLeave() {
+        this.active = false;
+        this.$emit('iconFocus', null)
       },
 
       onResize() {

@@ -1,2 +1,15 @@
-h1 Contacts#index
-p Find me in app/views/contacts/index.html.slim
+.constants-container
+  h1 Наши контакты
+  .contacts-grid
+    - @contacts.each do |contact|
+      .contact-name
+        = contact.name
+        |:
+      .contact-value
+        = contact.value
+
+#app
+
+script src="https://maps.googleapis.com/maps/api/js?key=#{google_map_key}"
+
+= javascript_pack_tag 'map'

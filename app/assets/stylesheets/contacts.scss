@@ -1,3 +1,16 @@
 // Place all the styles related to the contacts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.constants-container {
+  margin: 30px auto;
+  display: table;
+}
+
+
+.contacts-grid {
+  font-family: 'Roboto', Sans-Serif;
+  display: grid;
+  grid-template-columns: 80px 300px;
+  font-size: 16px;
+}

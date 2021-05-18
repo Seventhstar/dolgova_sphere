@@ -48,11 +48,3 @@
     }
   }
 </script>
-
-<style scoped>
-  .google-map {
-    width: 80%;
-    margin: 50px auto;
-    height: 450px;
-  }
-</style>

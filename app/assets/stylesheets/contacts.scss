@@ -7,10 +7,15 @@
   display: table;
 }
 
-
 .contacts-grid {
   font-family: 'Roboto', Sans-Serif;
   display: grid;
   grid-template-columns: 80px 300px;
   font-size: 16px;
+}
+
+.google-map {
+  width: 80%;
+  margin: 50px auto;
+  height: 450px;
 }

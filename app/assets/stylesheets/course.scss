@@ -8,3 +8,8 @@
 .course-card .h3 {
   margin-left: 20px;
 }
+
+.courses svg:hover {
+  -webkit-filter: hue-rotate(180deg);
+  filter: hue-rotate(180deg);
+}

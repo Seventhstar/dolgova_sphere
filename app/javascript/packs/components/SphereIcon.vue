@@ -1,5 +1,6 @@
 <template>
   <div>
+    <img :src="require('images/ring-white.svg')" :style="whiteRingStyle" alt="icon"/>
     <img :src="require('images/course-'+fields.id+'.svg')"
          :style="iconStyle"
          @click="iconClick"
@@ -23,23 +24,22 @@
     data: function () {
       return {
         degree: 90,
-        minSize: 900,
+        minSize: 850,
         iconSize: 128,
         showChild: false,
-        active: false,
-        txt: ''
+        active: false
       }
     },
 
     created() {
       this.minSize = this.size;
-      this.onResize();
+      this.iconSize = this.minSize / 5;
     },
 
     watch: {
       size(newVal) {
         this.minSize = newVal;
-        this.onResize();
+        this.iconSize = this.minSize / 5;
       }
     },
 
@@ -60,6 +60,16 @@
         return (this.minSize / 2) * Math.sin(this.fields.degree * Math.PI / 180) - this.iconSize / 2 + this.size / 2;
       },
 
+
+      whiteRingStyle: function() {
+        return `width: ${this.iconSize}px;
+                height: ${this.iconSize}px;
+	              margin-top: ${this.yPos}px;
+	              margin-left: ${this.xPos}px;
+	              z-index: 100;
+	              left: 50%; position: absolute`
+      },
+
       iconStyle: function () {
         return `width: ${this.iconSize}px;
                 height: ${this.iconSize}px;
@@ -70,10 +80,11 @@
       },
 
       ringStyle: function () {
-        return `width: ${this.iconSize + 8}px;
-                height: ${this.iconSize + 8}px;
-	              margin-top: ${this.yPos - 4}px;
-	              margin-left: ${this.xPos - 4}px;
+        return `width: ${this.iconSize}px;
+                height: ${this.iconSize}px;
+	              margin-top: ${this.yPos}px;
+	              margin-left: ${this.xPos}px;
+	              z-index: 150;
 	              left: 50%; position: absolute`
       },
 
@@ -105,13 +116,6 @@
         this.active = false;
         this.$emit('iconFocus', null)
       },
-
-      onResize() {
-        this.windowWidth = window.innerWidth
-        this.windowHeight = window.innerHeight
-        this.minSize = Math.min(window.innerHeight / 1.3, window.innerWidth / 1.3);
-        this.iconSize = this.minSize / 7;
-      }
     }
   }
 </script>

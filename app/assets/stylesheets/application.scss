@@ -17,7 +17,7 @@ body {
 
 #sphere {
   width: 50%;
-  margin: 80px auto;
+  margin: 80px auto 120px auto;
   display: block;
 }
 
@@ -28,6 +28,7 @@ body {
   position: absolute;
   margin-top: -55px;
   margin-left: -65px;
+  z-index: 300;
   //opacity: 0;
 }
 

@@ -1,5 +1,5 @@
 <template>
-  <div id="sphere_container" style="width: 100%">
+  <div id="sphere_container" class="courses" style="width: 100%">
     <icon-info :size="minSize" :text="info" :show="showText || cursorOnIcon"/>
     <div id="sphere" :style="leftDivStyle">
       <img :src="require('images/sphera_bold-01.svg')" id="imgSphere" :style="sphereStyle" alt="сфера"/>
@@ -82,9 +82,11 @@
       },
 
       sphereStyle: function () {
-        return `width: ${this.minSize}px; height: ${this.minSize}px;
+        return `width: ${this.minSize}px;
+                height: ${this.minSize}px;
 	              margin-left: -${this.minSize / 2}px;
-	              left: 50%; position: absolute`
+	              left: 50%;
+	              position: absolute`
       },
 
       leftDivStyle: function () {
@@ -142,9 +144,9 @@
       },
 
       onResize() {
-        this.windowHeight = document.body.offsetHeight
-        this.windowWidth = document.body.clientWidth
-        let minSize = Math.min(window.innerHeight / 1.3, window.innerWidth / 1.3) - 10;
+        this.windowHeight = window.innerHeight - 180;
+        this.windowWidth = window.innerWidth;
+        let minSize = Math.min(this.windowHeight / 1.3, this.windowWidth / 1.3) - 10;
         if (minSize > this.windowWidth) minSize = this.windowWidth - 40;
         this.minSize = minSize;
         this.iconSize = this.minSize / 7;

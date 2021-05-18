@@ -1,5 +1,5 @@
 <template>
-  <div id="sphere_container" style="width: 100%">
+  <div id="sphere_container" class="team" style="width: 100%">
     <!--    <span id="width">{{txt}} - {{idx}} - activeNumber:{{iconsData[0].active}}, {{iconsData[1].active}}, {{iconsData[2].active}}</span>-->
     <staff-info :size="minSize" :text="info" :course="course" :show="showText || cursorOnIcon"/>
     <div id="sphere" :style="leftDivStyle">

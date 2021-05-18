@@ -1,17 +1,12 @@
-<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1553 1553">
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1553 1553">
   <defs>
     <style>
-      .cls-1 {
-        fill: #fff;
-      }
-
       .cls-2 {
         fill: #1a6c77;
       }
     </style>
   </defs>
-  <circle id="ring_white" data-name="ring white" class="cls-1" cx="776.5" cy="776.5" r="776.5"/>
-  <g id="ring_mini" data-name="ring mini">
+  <g id="ring_mini">
     <path class="cls-2" d="M776.5,1421.08A644.75,644.75,0,0,1,525.6,182.58a644.74,644.74,0,0,1,501.8,1187.84A640.62,640.62,0,0,1,776.5,1421.08Zm0-1275.16c-347.7,0-630.58,282.88-630.58,630.58S428.8,1407.08,776.5,1407.08s630.58-282.88,630.58-630.58S1124.2,145.92,776.5,145.92Z"/>
   </g>
   <g id="group">

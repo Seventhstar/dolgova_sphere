@@ -1,3 +1,39 @@
+@media screen and (min-width: 1200px) {
+  .about_card, .we_card, .footer_card {
+    max-width: 1200px;
+  }
+}
+
+
+@media screen and (max-width: 1200px) {
+  .about_card, .we_card, .footer_card {
+    max-width: 960px;
+  }
+
+  .logo {
+    width: 300px !important;
+    max-width: 90%;
+    margin-left: 10px !important;
+  }
+
+  .logo img {
+    max-width: 140%;
+  }
+
+  .staff-page .staff_card, .staff-page .card {
+    max-width: 90%;
+  }
+
+  //#sphere {
+  //  margin: 30px auto !important;
+  //}
+
+  .we_card_img {
+    max-width: 400px;
+  }
+}
+
+
 /* For Mobile */
 @media screen and (max-width: 540px) {
   .about_card, .we_card, .footer_card {
@@ -44,47 +80,11 @@
   }
 
   #sphere_container #sphere {
-    margin-top: 100px !important;
+    margin: 60px auto !important;
   }
 }
 
-
-@media screen and (max-width: 1200px) {
-  .logo {
-    max-width: 90%;
-    margin-left: 10px !important;
-  }
-
-  .logo img {
-    max-width: 140%;
-  }
-
-
-  .staff-page .staff_card, .staff-page .card {
-    max-width: 90%;
-  }
-
-  #sphere {
-    margin: 30px auto !important;
-  }
-
-  .we_card_img {
-    max-width: 400px;
-  }
-}
-
-@media screen and (max-width: 1200px) {
-  .about_card, .we_card, .footer_card {
-    max-width: 960px;
-  }
-  .logo {
-    width: 300px !important;
-  }
-
-}
-
-@media screen and (min-width: 1200px) {
-  .about_card, .we_card, .footer_card {
-    max-width: 1200px;
-  }
+@media screen and (max-width: 360px) {
+  font-size: 11px;
+  line-height: 1em;
 }

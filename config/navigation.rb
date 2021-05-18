@@ -15,7 +15,7 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.item :team, 'Наша команда', team_path
     primary.item :projects, 'Проекты'
     primary.item :cost, 'Стоимость'
-    primary.item :contacts, 'Контакты'
+    primary.item :contacts, 'Контакты', contacts_path
 
     primary.dom_class = 'nav'
   end

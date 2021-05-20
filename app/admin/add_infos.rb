@@ -1,4 +1,5 @@
 ActiveAdmin.register AddInfo do
+  menu parent: "Пользователи", label: 'Доп. информация'
   permit_params :user_id, :course, :main, :about, :education, :logo_url, :photo_url
 
   index do

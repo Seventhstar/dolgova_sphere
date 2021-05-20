@@ -1,18 +1,19 @@
 ActiveAdmin.register Course do
+  menu parent: "Направления", label: 'Направления'
 
-  # See permitted parameters documentation:
-  # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-  #
-  # Uncomment all parameters which should be permitted for assignment
-  #
-  permit_params :name, :description, :duration
-  #
-  # or
-  #
-  # permit_params do
-  #   permitted = [:name, :description, :duration]
-  #   permitted << :other if params[:action] == 'create' && current_user.admin?
-  #   permitted
-  # end
+  permit_params :name, :description, :duration, :staff_ids => []
+
+  form do |f|
+    f.semantic_errors *f.object.errors.keys
+    f.inputs "Направление" do
+      f.input :name
+      f.input :description 
+      f.input :duration
+
+      f.input :staffs, label: 'Кто ведет', as: :check_boxes, foreign_key: :user_id, 
+                collection: User.staff.map{ |s| [s.name, s.id] }
+    end
+    actions
+  end
   
 end

@@ -17,11 +17,11 @@
         width: 0,
         height: 0,
         headFontSize: 26,
-        fontSize: 14
+        fontSize: 18
       }
     },
 
-    created() {
+    mounted() {
       this.calcSises();
     },
 
@@ -48,12 +48,15 @@
         } else if (this.size < 550) {
           this.headFontSize = 24;
           this.fontSize = 18;
-        } else this.headFontSize = 26;
+        } else {
+          this.headFontSize = 26;
+          this.fontSize = 22;
+        }
       },
 
       infoHeadStyle: function () {
         return `width: ${this.width}px;
-                height: ${this.height / 2}px;
+                height: ${this.height / 2-10}px;
                 font-size: ${this.headFontSize}px;
                 line-height: 1.2em;
 	              margin-left: -${this.width / 2 - 2}px;
@@ -62,12 +65,12 @@
       },
 
       infoStyle: function (row) {
-        return `width: ${this.width}px;
-                height: ${this.height / 2}px;
+        return `width: ${this.width - 20}px;
+                height: ${this.height / 2+20}px;
                 font-size: ${this.fontSize}px;
                 line-height: 1.2em;
-	              margin-left: -${this.width / 2 - 2}px;
-	              margin-top: ${this.size / 2 - this.height / 2 + this.height / 2 + 2}px;
+	              margin-left: -${this.width / 2 - 12}px;
+	              margin-top: ${this.size / 2 - this.height / 2 + this.height / 2 - 18}px;
 	              `
       },
 

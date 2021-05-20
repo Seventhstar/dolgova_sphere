@@ -79,20 +79,61 @@ body {
 .fade-item {
   display: inline-block;
   margin-right: 10px;
+  -webkit-transform: rotate(145deg);
+  -moz-transform: rotate(145deg);
+  -o-transform: rotate(145deg);
+  transform: rotate(145deg);
+
+  -webkit-transition-duration: 5s;
+  -moz-transition-duration: 5s;
+  -o-transition-duration: 5s;
+  transition-duration: 5s;
 }
+
 //
+.fade {
+  //-webkit-transform: rotate(180deg);
+  //-moz-transform: rotate(180deg);
+  //-o-transform: rotate(180deg);
+  //transform: rotate(180deg);
+  //-webkit-transition-duration: 3s;
+  //-moz-transition-duration: 3s;
+  //-o-transition-duration: 3s;
+  //transition-duration: 3s;
+}
+
 .fade-enter-active, .fade-leave-active {
-  transition: all 1s;
+  transition: all 10s;
+  -webkit-transform: rotate(145deg);
+  -moz-transform: rotate(145deg);
+  -o-transform: rotate(145deg);
+  transform: rotate(145deg);
+
+  -webkit-transition-duration: 5s;
+  -moz-transition-duration: 5s;
+  -o-transition-duration: 5s;
+  transition-duration: 5s;
 }
 
 .fade-enter, .fade-leave-to /* .fade-leave-active до версии 2.1.8 */
 {
-  //opacity: 0;
-  /*transform: translateY(30px);*/
+  transition: all 10s;
+
 }
 
 .fade-enter {
-  transform: scale3d(0.8, 0.8, 0.8);
+  //transform: scale3d(0.8, 0.8, 0.8);
+  transform: scale3d(1.2, 1.2, 1.2) rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+
+
+  -webkit-transition-duration: 1s;
+  -moz-transition-duration: 1s;
+  -o-transition-duration: 1s;
+  transition-duration: 1s;
+
 }
 
 .fade-leave-to {
@@ -159,11 +200,14 @@ body {
 .slide-fade-enter-active {
   transition: all .3s ease;
 }
+
 .slide-fade-leave-active {
   transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
 }
+
 .slide-fade-enter, .slide-fade-leave-to
-  /* .slide-fade-leave-active below version 2.1.8 */ {
+  /* .slide-fade-leave-active below version 2.1.8 */
+{
   transform: translateX(10px);
   opacity: 0;
 }

@@ -1,12 +1,12 @@
 <template>
-  <div>
+  <div :style="iconContainer">
     <img :src="require('images/staff-sm-'+fields.id+'.jpg')"
          :style="imgStyle"
          @click="iconClick"
          v-on:mouseover="mouseOver"
          v-on:mouseleave="mouseLeave"/>
 
-    <transition-group name="fade" :duration="{ enter: 500, leave: 2000 }">
+    <transition-group name="fade" >
       <img :src="require('images/ring.svg')"
            :style="ringStyle"
            :key="0"
@@ -25,15 +25,19 @@
         active: false,
         degree: 90,
         minSize: 900,
-        iconSize: 128,
+        iconSize: 64,
         showChild: false
       }
     },
 
     created() {
-      this.minSize = this.size;
-      this.onResize();
-      // setInterval(() => this.run(), 500);
+      if (this.size === 0) {
+
+      } else {
+        this.minSize = this.size;
+        this.onResize();
+      }
+      console.log('this.minSize', this.minSize);
     },
 
     watch: {
@@ -60,33 +64,32 @@
         return (this.minSize / 2) * Math.sin(this.fields.degree * Math.PI / 180) - this.iconSize / 2 + this.size / 2;
       },
 
+      iconContainer() {
+        let style = `width: ${this.iconSize}px;
+                     height: ${this.iconSize}px;
+                     display: table;`
+
+        if (this.size !== 0) {
+          style += `margin-top: ${this.yPos}px;
+                   margin-left: ${this.xPos}px;
+                   left: 50%; position: absolute`
+        } else {
+          style += `margin-right: 8px;`
+        }
+
+        return style
+      },
 
       imgStyle: function () {
-        return `width: ${this.iconSize}px;
-                height: ${this.iconSize}px;
-	              margin-top: ${this.yPos}px;
-	              margin-left: ${this.xPos}px;
-	              left: 50%;
-	              position: absolute;
-                border-radius: 50%;
-                z-index:500;`
+        return this.commonStyle('img');
       },
 
       iconStyle: function () {
-        return `width: ${this.iconSize}px;
-                height: ${this.iconSize}px;
-	              margin-top: ${this.yPos}px;
-	              margin-left: ${this.xPos}px;
-
-	              left: 50%; position: absolute`
+        return this.commonStyle('icon');
       },
 
       ringStyle: function () {
-        return `width: ${this.iconSize + 8}px;
-                height: ${this.iconSize + 8}px;
-	              margin-top: ${this.yPos - 4}px;
-	              margin-left: ${this.xPos - 4}px;
-	              left: 50%; position: absolute`
+        return this.commonStyle('ring');
       },
 
       childClass: function () {
@@ -102,6 +105,25 @@
     },
 
     methods: {
+      commonStyle(type) {
+        let iconSize = this.iconSize
+        if (type === 'ring') iconSize += 16
+
+        let style = `width: ${iconSize}px;
+                     height: ${iconSize}px;
+                      position: absolute;`
+
+        if (type === 'ring') {
+          let deltaPos = -8
+          style += `margin-top: ${deltaPos}px;
+                    margin-left: ${deltaPos}px;`
+        }
+
+        if (type === 'img') style += 'border-radius: 50%;z-index:500;'
+
+        return style
+      },
+
       mouseOver: function () {
         this.active = true;
         this.$emit('iconFocus', {
@@ -112,14 +134,6 @@
       mouseLeave() {
         this.active = false;
         this.$emit('iconFocus', null)
-      },
-
-      mouseIn() {
-        console.log('mouseIn this.showChild', this.showChild)
-        this.showChild = true
-        this.$emit('iconFocus', {
-          id: this.id
-        })
       },
 
       iconClick() {

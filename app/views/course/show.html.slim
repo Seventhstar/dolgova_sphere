@@ -5,3 +5,8 @@
         data: {course: for_vue(@course, [:description_html])\
         } do
 
+= content_tag :div, id: 'staff-data',
+        data: {users: for_vue(@course.staffs, [:course])\
+        } do
+
+

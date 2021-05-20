@@ -1,5 +1,6 @@
 ActiveAdmin.register User do
-  permit_params :email, :name, :password, :password_confirmation, :is_admin, :is_staff
+  menu parent: "Пользователи", label: 'Пользователи'
+  permit_params :email, :name, :password, :password_confirmation, :is_admin, :is_staff, :actual
 
   index do
     selectable_column

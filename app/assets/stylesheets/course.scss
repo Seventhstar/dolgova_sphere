@@ -1,12 +1,19 @@
 .course-img {
-  height: 48px;
-  width: 48px !important;
-  margin-top: -24px;
-  margin-left: -16px;
+  //height: 48px;
+  //width: 48px !important;
+  //margin-top: -24px;
+  //margin-left: -16px;
+  height: 64px;
+  width: 64px !important;
+  margin: -2px 10px 0 -14px;
+  //margin-top: -6px;
+  //margin-left: -14px;
+  //margin-right: 10px;
 }
 
 .course-card .h3 {
   margin-left: 20px;
+  margin-top: 14px;
 }
 
 .courses svg:hover {

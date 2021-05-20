@@ -7,7 +7,6 @@
     name: "Map",
     data() {
       return {
-        bounds: new google.maps.LatLngBounds(), // Авто масштабирование карты
         map: '',
         markers: [{
           position: {latitude: 55.1598193, longitude: 61.4144122},

@@ -7,7 +7,7 @@
          v-on:mouseover="mouseOver"
          v-on:mouseleave="mouseLeave" alt="icon"/>
 
-    <transition-group name="fade" :duration="{ enter: 500, leave: 2000 }">
+    <transition-group name="fade">
       <img :src="require('images/ring.svg')"
            :style="ringStyle"
            :key="0"

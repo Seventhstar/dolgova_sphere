@@ -48,7 +48,7 @@
 
       this.onResize();
       this.createText();
-      setInterval(() => this.run(), 5000);
+      setInterval(() => this.run(), 2000);
     },
 
     watch: {
@@ -61,6 +61,7 @@
     },
 
     mounted() {
+      this.iconsData.forEach(i => i.active = false)
       this.$nextTick(() => {
         window.addEventListener('resize', this.onResize);
       })
@@ -111,15 +112,15 @@
           return
         }
         this.idx += 1;
-        if (this.idx === 3) {
-          this.iconsData.forEach(i => i.active = false)
-        } else if (this.idx === 6) {
-          this.idx = 0
+        if (this.idx === 2) {
           let newActive = Math.round(Math.random() * this.iconsData.length)
           if (this.activeNumber === newActive) newActive += 1
           if (newActive === this.iconsData.length) newActive = 0
           this.activeNumber = newActive
           this.iconsData[this.activeNumber].active = true
+        } else if (this.idx === 6) {
+          this.idx = 0
+          this.iconsData.forEach(i => i.active = false)
         }
       },
 

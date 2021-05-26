@@ -58,8 +58,8 @@ ActiveAdmin.register User do
       f.input :is_staff, as: :boolean
       f.input :is_admin, as: :boolean
       f.input :actual, as: :boolean
-      f.input :avatar, as: :file
 
+      f.input :avatar, as: :file
       span image_tag(f.object.avatar) if f.object.avatar.present?
 
       f.input :sertificates, as: :file, input_html: {multiple: true}

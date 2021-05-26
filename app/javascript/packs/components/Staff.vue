@@ -7,9 +7,9 @@
         </div>
         <div class="h4">{{user.course}}</div>
       </div>
-      <div class="grid">
+      <div class="flex-card">
         <img class="we_card_img staff-img"
-             :src="require('images/staff-'+id+'.jpg')"/>
+             :src="mainImage"/>
         <div class="card-body">
           <div class="h3">C чем я работаю:</div>
           <div class="about" v-html="main"/>
@@ -17,17 +17,26 @@
       </div>
     </div>
 
-    <div class="staff_card">
-      <div class="card-body">
-        <div class="h3">Обо мне</div>
-        <div class="about" v-html="about"/>
+    <div class="staff_card full">
+      <div class="flex-card">
+        <div class="card-body">
+          <div class="h3">Обо мне</div>
+          <div class="about" v-html="about"/>
+        </div>
+        <img class="we_card_img staff-img"
+             :src="aboutImage"/>
       </div>
     </div>
 
-    <div class="staff_card">
-      <div class="card-body">
-        <div class="h3">Образование</div>
-        <div class="about" v-html="education"/>
+    <div class="staff_card full">
+      <div class="flex-card">
+      <img class="we_card_img staff-img"
+           :src="aboutImage"/>
+
+        <div class="card-body">
+          <div class="h3">Образование</div>
+          <div class="about" v-html="education"/>
+        </div>
       </div>
     </div>
 
@@ -40,6 +49,8 @@
     data: function () {
       return {
         id: 2,
+        mainImage: '',
+        aboutImage: '',
         about: '',
         main: '',
         education: '',
@@ -56,6 +67,12 @@
         this.main = this.user.main
         this.about = this.user.about
         this.education = this.user.education
+      }
+
+      element = document.getElementById('staff-images')
+      if (element !== null) {
+        this.mainImage = element.dataset.main
+        this.aboutImage = element.dataset.about
       }
     },
 

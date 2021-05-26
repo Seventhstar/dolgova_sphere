@@ -1,6 +1,14 @@
 #app
 = javascript_pack_tag 'staff'
 
+= content_tag :div, id: 'staff-images',
+        data: {\
+           main: polymorphic_url(@user.add_info&.main_image),\
+           about: polymorphic_url(@user.add_info&.about_image),\
+           study: polymorphic_url(@user.add_info&.study_image),\
+	} do
+
+
 = content_tag :div, id: 'staff-data',
         data: {user: for_vue(@user, [:course, :main, :about, :education])\
         } do

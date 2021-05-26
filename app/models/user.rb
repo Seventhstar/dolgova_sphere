@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  include Rails.application.routes.url_helpers
+
   has_one :add_info
   devise :database_authenticatable, 
          :recoverable, :rememberable, :validatable
@@ -14,6 +16,10 @@ class User < ApplicationRecord
 
   def sertificate_attributes=(attributes)
     sertificate.clear if has_destroy_flag?(attributes) && !sertificate.dirty?
+  end
+
+  def image_url(name)
+    self&.add_info.try(name) if self&.add_info.try(name).present?
   end
 
   def course

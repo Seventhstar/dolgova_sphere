@@ -31,7 +31,7 @@
     <div class="staff_card full">
       <div class="flex-card">
       <img class="we_card_img staff-img"
-           :src="aboutImage"/>
+           :src="studyImage"/>
 
         <div class="card-body">
           <div class="h3">Образование</div>
@@ -51,6 +51,7 @@
         id: 2,
         mainImage: '',
         aboutImage: '',
+        studyImage: '',
         about: '',
         main: '',
         education: '',
@@ -73,6 +74,7 @@
       if (element !== null) {
         this.mainImage = element.dataset.main
         this.aboutImage = element.dataset.about
+        this.studyImage = element.dataset.study
       }
     },
 

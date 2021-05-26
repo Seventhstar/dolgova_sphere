@@ -10,4 +10,8 @@ module ApplicationHelper
       Rails.application.config.gmaps.api_key
     end
   end
+
+  def image_url(obj)
+    polymorphic_url(obj) if obj.present?
+  end
 end

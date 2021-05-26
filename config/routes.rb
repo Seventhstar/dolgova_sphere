@@ -2,6 +2,12 @@ Rails.application.routes.draw do
   get 'contacts/index'
 # resources :users, only: [:show]
   devise_for :users, ActiveAdmin::Devise.config
+  resources :users do
+    member do
+      delete :delete_avatar
+    end
+  end
+
 # devise_for :users, controllers: { registrations: 'users/registrations' }
 
   ActiveAdmin.routes(self)

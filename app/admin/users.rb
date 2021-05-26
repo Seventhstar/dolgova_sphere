@@ -1,6 +1,15 @@
 ActiveAdmin.register User do
   menu parent: "Пользователи", label: 'Пользователи'
-  permit_params :email, :name, :password, :password_confirmation, :is_admin, :is_staff, :actual
+  permit_params :email, :name, :password, :password_confirmation, :is_admin,
+                :is_staff, :actual, :avatar,
+                sertificates: [], sertificate_attributes: [:_destroy]
+
+  scope -> { 'Все' }, :all
+  scope -> { 'Сотрудники' }, :staff
+  scope -> { 'Админы' }, :admins
+  scope -> { 'Клиенты' }, :clients
+
+#  filter :is_admin, as: :check_boxes
 
   index do
     selectable_column
@@ -15,6 +24,28 @@ ActiveAdmin.register User do
     actions
   end
 
+  controller do
+    def update
+      if params[:user][:password].blank?
+        params[:user].delete("password")
+        params[:user].delete("password_confirmation")
+      end
+      super
+    end
+  end
+
+# before_save do |user|
+#   user.skip_confirmation!
+#   user.skip_reconfirmation!
+# end
+#
+
+# member_action :delete_avatar, method: :delete do
+#   @pic = ActiveStorage::Attachment.find(params[:id])
+#   @pic.purge_later
+#   redirect_back(fallback_location: edit_admin_category_path)
+# end
+
   filter :email
   filter :current_sign_in_at
   filter :sign_in_count
@@ -26,10 +57,23 @@ ActiveAdmin.register User do
       f.input :name
       f.input :is_staff, as: :boolean
       f.input :is_admin, as: :boolean
-#      f.input :password if f.object.new_record?
-#      f.input :password_confirmation if f.object.new_record?
-      f.input :password 
-      f.input :password_confirmation 
+      f.input :actual, as: :boolean
+      f.input :avatar, as: :file
+
+      span image_tag(f.object.avatar) if f.object.avatar.present?
+
+      f.input :sertificates, as: :file, input_html: {multiple: true}
+
+      span class: "admin_images" do
+        f.object.sertificates.each do |img|
+          span class: "admin_image_preview" do
+            span image_tag(img)
+            a "Delete", href: delete_avatar_user_path(img.id), "data-method": :delete, "data-confirm": "Are you sure?"
+          end
+        end
+      end
+      f.input :password
+      f.input :password_confirmation
     end
     f.actions
   end

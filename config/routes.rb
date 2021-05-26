@@ -13,8 +13,8 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
 
   get 'team', to: 'team#index'
-  get 'team/:id', to: 'user#show'
-  get 'users/:id', to: 'user#show'
+  get 'team/:id', to: 'users#show'
+  get 'users/:id', to: 'users#show'
   get 'course/:id', to: 'course#show'
 
   get 'contacts', to: 'contact#index'

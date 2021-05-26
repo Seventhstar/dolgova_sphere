@@ -10,7 +10,10 @@
       <div class="grid">
         <img class="we_card_img staff-img"
              :src="require('images/staff-'+id+'.jpg')"/>
-        <div class="about" v-html="main"/>
+        <div class="card-body">
+          <div class="h3">C чем я работаю:</div>
+          <div class="about" v-html="main"/>
+        </div>
       </div>
     </div>
 

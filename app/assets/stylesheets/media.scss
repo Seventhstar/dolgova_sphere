@@ -47,6 +47,27 @@
     box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.08);
   }
 
+  #main_container {
+    padding: 0 10px !important;
+  }
+
+  .staff-card-head .icon-20 {
+    padding-top: 2px !important;
+  }
+
+  .staff-card-head {
+    padding: 10px 12px !important;
+
+    .h3 {
+      line-height: 1em;
+    }
+    .h4 {
+      font-size: 12px;
+      line-height: 1em;
+      margin-top: 0 !important;
+    }
+  }
+
   p {
     margin-block-start: 0.5em !important;
     margin-block-end: .5em !important;

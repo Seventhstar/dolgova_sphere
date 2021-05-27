@@ -5,15 +5,19 @@
         <img class="we_card_img course-img left"
              :src="require('images/course-'+course.id+'w.svg')"/>
         <div class="h3">{{course.name}}</div>
-        <div class="staff-list">
-          <staff-icon :fields="icon" v-for="icon in iconsData" :key="icon.id" :size="0"/>
-        </div>
       </div>
+
       <div class="card-body">
         <div class="about" v-html="course.description_html"/>
       </div>
     </div>
+    <div class="course-icons">
+      <div class="staff-list">
+        <staff-icon :fields="icon" v-for="icon in iconsData" :key="icon.id" :size="0"/>
+      </div>
+    </div>
   </div>
+
 </template>
 
 <script>

@@ -2,12 +2,15 @@
   <div class="staff-page">
     <div class="staff_card full">
       <div class="staff-card-head">
-        <div class="h3">{{user.name}}
+        <div class="flex-line">
+          <div class="h3">{{user.name}}</div>
           <img :src="require('images/leaf-white.svg')" alt="" class="icon-20">
         </div>
+
         <div class="h4">{{user.course}}</div>
       </div>
       <div class="flex-card">
+
         <img class="we_card_img staff-img"
              :src="mainImage"/>
         <div class="card-body">
@@ -30,8 +33,8 @@
 
     <div class="staff_card full">
       <div class="flex-card">
-      <img class="we_card_img staff-img"
-           :src="studyImage"/>
+        <img class="we_card_img staff-img"
+             :src="studyImage"/>
 
         <div class="card-body">
           <div class="h3">Образование</div>

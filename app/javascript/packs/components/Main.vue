@@ -144,10 +144,19 @@
       },
 
       onResize() {
-        this.windowHeight = window.innerHeight - 180;
-        this.windowWidth = window.innerWidth;
-        let minSize = Math.min(this.windowHeight / 1.3, this.windowWidth / 1.3) - 10;
+        // this.windowHeight = window.innerHeight - 180;
+        // this.windowWidth = window.innerWidth;
+        this.windowHeight = document.body.offsetHeight
+        this.windowWidth = document.body.clientWidth
+
+        let minSize = 800
+        if (this.windowWidth > 400)
+          minSize = Math.min(window.innerHeight / 1.3, window.innerWidth / 1.3) - 74;
+        else
+          minSize = Math.min(window.innerHeight / 1.1, window.innerWidth / 1.1) - 40;
+
         if (minSize > this.windowWidth) minSize = this.windowWidth - 40;
+        console.log('minSize', minSize, 'this.windowWidth', this.windowWidth, 'this.windowHeight', this.windowHeight)
         this.minSize = minSize;
         this.iconSize = this.minSize / 7;
       }

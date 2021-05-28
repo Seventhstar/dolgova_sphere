@@ -147,9 +147,19 @@
       onResize() {
         this.windowHeight = document.body.offsetHeight
         this.windowWidth = document.body.clientWidth
-        let minSize = Math.min(window.innerHeight / 1.3, window.innerWidth / 1.3) - 10;
+
+        let minSize = 800
+        if (this.windowWidth > 400) {
+          minSize = Math.min(window.innerHeight / 1.3, window.innerWidth / 1.3) - 74;
+        }
+        else {
+          minSize = Math.min(window.innerHeight / 1.1, window.innerWidth / 1.1) - 40;
+
+        }
+
+        console.log('minSize', minSize, 'this.windowWidth', this.windowWidth, 'this.windowHeight', this.windowHeight)
+
         if (minSize > this.windowWidth) minSize = this.windowWidth - 40;
-        minSize -= 64;
         this.minSize = minSize;
         this.iconSize = this.minSize / 7;
       }

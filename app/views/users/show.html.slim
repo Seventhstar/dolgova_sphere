@@ -3,9 +3,9 @@
 
 = content_tag :div, id: 'staff-images',
         data: {\
-           main: image_url(@user&.add_info&.main_image),\
-           about: image_url(@user&.add_info&.about_image),\
-           study: image_url(@user&.add_info&.study_image),\
+           main: image_url(@info,'main_image'),\
+           about: image_url(@info,'about_image'),\
+           study: image_url(@info,'study_image'),\
 	} do
 
 

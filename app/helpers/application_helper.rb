@@ -11,7 +11,7 @@ module ApplicationHelper
     end
   end
 
-  def image_url(obj)
-    polymorphic_url(obj) if obj.present?
+  def image_url(obj, image_name)
+    polymorphic_url(obj.try(image_name)) if obj.try(image_name).attached?
   end
 end

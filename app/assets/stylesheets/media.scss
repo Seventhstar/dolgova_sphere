@@ -2,6 +2,40 @@
   .about_card, .we_card, .footer_card {
     max-width: 1200px;
   }
+
+}
+
+@media screen and (min-width: 900px) {
+  .main-nav {
+    margin-top: -48px;
+  }
+}
+
+@media screen and (min-width: 680px) and (max-width: 899px) {
+  .menu {
+    padding-top: 22px;
+  }
+}
+
+@media screen and (min-width: 540px) and (max-width: 679px) {
+  .menu {
+    margin-left: -200px;
+    padding-top: 60px;
+  }
+}
+
+@media screen and (min-width: 540px) and (max-width: 760px) {
+  .staff_card.main .flex-card img {
+    max-width: 43%;
+  }
+
+  .flex-card {
+    padding: 0 !important;
+  }
+
+  .staff_card.main {
+    font-size: 12px;
+  }
 }
 
 
@@ -10,15 +44,15 @@
     max-width: 960px;
   }
 
-  .logo {
-    width: 300px !important;
-    max-width: 90%;
-    margin-left: 10px !important;
-  }
+  //.logo {
+  //  width: 300px !important;
+  //  max-width: 90%;
+  //  margin-left: 10px !important;
+  //}
 
-  .logo img {
-    max-width: 140%;
-  }
+  //.logo img {
+  //  max-width: 140%;
+  //}
 
   .staff-page .staff_card, .staff-page .card {
     max-width: 90%;
@@ -47,6 +81,20 @@
     box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.08);
   }
 
+  .main-nav {
+    max-width: 70%;
+    margin-top: -23px;
+    float: left !important;
+
+    ul {
+      float: left !important;
+    }
+  }
+
+  .staff-page {
+    margin-top: 20px;
+  }
+
   #main_container {
     padding: 0 10px !important;
   }
@@ -57,14 +105,36 @@
 
   .staff-card-head {
     padding: 10px 12px !important;
+//    padding: 10px 12px !important;
 
     .h3 {
       line-height: 1em;
     }
+
     .h4 {
       font-size: 12px;
       line-height: 1em;
       margin-top: 0 !important;
+    }
+  }
+
+  .staff_card.main {
+    font-size: 10px;
+
+    .card-body {
+      margin: 4px 10px;
+      .h3 {
+        line-height: 1em;
+        font-size: 18px;
+      }
+    }
+
+    .flex-card {
+      img {
+        max-width: 48%;
+      }
+
+      padding: 0 !important;
     }
   }
 
@@ -81,11 +151,11 @@
     padding: 0 8px 0 8px !important;
   }
 
-  .logo {
-    max-width: 90%;
-    margin-left: 10px !important;
-  }
-
+  //.logo {
+  //  max-width: 90%;
+  //  margin-left: 10px !important;
+  //}
+  //
   .logo img {
     max-width: 100% !important;
   }
@@ -94,10 +164,11 @@
     width: 90%
   }
 
-  #main-nav {
+  #head {
     flex-direction: column;
     height: fit-content;
-    margin-bottom: 30px;
+    align-items: flex-end;
+    //margin-bottom: 30px;
   }
 
   #sphere_container #sphere {

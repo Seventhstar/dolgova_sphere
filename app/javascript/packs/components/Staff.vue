@@ -1,6 +1,6 @@
 <template>
   <div class="staff-page">
-    <div class="staff_card full">
+    <div class="staff_card full main">
       <div class="staff-card-head">
         <div class="flex-line">
           <div class="h3">{{user.name}}</div>

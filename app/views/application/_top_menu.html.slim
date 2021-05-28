@@ -1,5 +1,8 @@
-#main-nav
+#head
+  / .logo-flex
   = link_to image_pack_tag('logo.svg', class: 'logo_img'),'\\', class: 'logo'
+    / .logo-text
+    /   |Психологический клуб
 
   .menu
     .login-info
@@ -12,5 +15,6 @@
           = link_to image_tag('logout.svg'), destroy_user_session_path
         - else
           = link_to image_tag('login.svg'), new_user_session_url
-    .toolbar_items.main-nav
-      = render_navigation level: 1
+
+.toolbar_items.main-nav
+  = render_navigation level: 1

@@ -105,7 +105,7 @@
 
   .staff-card-head {
     padding: 10px 12px !important;
-//    padding: 10px 12px !important;
+    //    padding: 10px 12px !important;
 
     .h3 {
       line-height: 1em;
@@ -123,6 +123,7 @@
 
     .card-body {
       margin: 4px 10px;
+
       .h3 {
         line-height: 1em;
         font-size: 18px;
@@ -179,4 +180,18 @@
 @media screen and (max-width: 360px) {
   font-size: 11px;
   line-height: 1em;
+}
+
+@media screen and (max-width: 350px) {
+  .main-nav {
+    max-width: 72% !important;
+    margin-top: -20px !important;
+  }
+  .main-nav .nav {
+    line-height: 1.2em;
+    font-size: 12px;
+  }
+  .menu, .menu a, .user_name {
+    font-size: 12px !important;
+  }
 }

@@ -37,6 +37,10 @@
   width: 18px
 }
 
+.menu {
+  margin-top: 22px;
+}
+
 .menu, .main-nav {
   color: $main-color;
   text-transform: uppercase;
@@ -70,6 +74,7 @@
     font-weight: bold;
     text-decoration: none;
     cursor: pointer;
+    border-bottom: 1px solid white;
   }
 }
 

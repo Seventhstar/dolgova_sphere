@@ -7,26 +7,30 @@
 
 @media screen and (min-width: 900px) {
   .main-nav {
-    margin-top: -48px;
+    margin-top: -8px;
   }
 }
 
 @media screen and (min-width: 680px) and (max-width: 899px) {
   .menu {
-    padding-top: 22px;
+    //padding-top: 22px;
+  }
+
+  .main-nav {
+    margin-top: 18px;
   }
 }
 
 @media screen and (min-width: 540px) and (max-width: 679px) {
   .menu {
     margin-left: -200px;
-    padding-top: 60px;
+    padding-top: 38px;
   }
 }
 
 @media screen and (min-width: 540px) and (max-width: 760px) {
-  .staff-card.main .flex-card img {
-    max-width: 43%;
+  .flex-card img {
+    max-width: 45% !important;
   }
 
   .flex-card {
@@ -35,6 +39,10 @@
 
   .staff-card.main {
     font-size: 12px;
+  }
+
+  .main-nav {
+    margin-top: 38px;
   }
 }
 
@@ -79,6 +87,12 @@
     -webkit-box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.08);
     -moz-box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.08);
     box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.08);
+  }
+
+
+  #main_container .price-container {
+    margin: 40px auto !important;
+    max-width: 100% !important;
   }
 
   .main-nav {
@@ -182,7 +196,7 @@
   line-height: 1em;
 }
 
-@media screen and (max-width: 380px) {
+@media screen and (max-width: 390px) {
   .main-nav {
     max-width: 72% !important;
     margin-top: -20px !important;
@@ -219,4 +233,26 @@
   .about-img {
     display: none;
   }
+
+  h1 {
+    font-size: 28px;
+
+  }
+
+  .price-container {
+    margin: 40px auto !important;
+    max-width: 100% !important;
+  }
+
+  .price-grid {
+    font-size: 14px !important;
+  }
+
+  .we_card_img {
+    max-width: -webkit-fill-available !important;
+  }
+  .we_card {
+    display: block !important;
+  }
+
 }

@@ -13,8 +13,8 @@ SimpleNavigation::Configuration.run do |navigation|
 
     primary.item :about, 'О нас', root_path
     primary.item :team, 'Наша команда', team_path
-    primary.item :projects, 'Проекты'
-    primary.item :cost, 'Стоимость'
+    primary.item :projects, 'Проекты', project_index_path
+    primary.item :cost, 'Стоимость', price_index_path
     primary.item :contacts, 'Контакты', contacts_path
 
     primary.dom_class = 'nav'

@@ -1,12 +1,13 @@
 ActiveAdmin.register Course do
   menu parent: "Направления", label: 'Направления'
 
-  permit_params :name, :description, :duration, :staff_ids => []
+  permit_params :name, :name_for_price, :description, :duration, :staff_ids => []
 
   form do |f|
     f.semantic_errors *f.object.errors.keys
     f.inputs "Направление" do
       f.input :name
+      f.input :name_for_price
       f.input :description 
       f.input :duration
 

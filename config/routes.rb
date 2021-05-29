@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'project/index'
+  get 'price/index'
   get 'contacts/index'
 # resources :users, only: [:show]
   devise_for :users, ActiveAdmin::Devise.config

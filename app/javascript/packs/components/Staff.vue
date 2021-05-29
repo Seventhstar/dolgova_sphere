@@ -11,7 +11,7 @@
       </div>
       <div class="flex-card">
 
-        <img class="we_card_img staff-img"
+        <img class="staff-img"
              :src="mainImage"/>
         <div class="card-body">
           <div class="h3">C чем я работаю:</div>

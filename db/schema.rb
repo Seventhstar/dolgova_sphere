@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_26_095639) do
+ActiveRecord::Schema.define(version: 2021_05_29_112418) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -93,6 +93,34 @@ ActiveRecord::Schema.define(version: 2021_05_26_095639) do
     t.string "duration"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "name_for_price"
+    t.integer "order"
+  end
+
+  create_table "prices", force: :cascade do |t|
+    t.bigint "course_id", null: false
+    t.integer "staff_id", null: false
+    t.bigint "tarif_id", null: false
+    t.integer "amount"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["course_id"], name: "index_prices_on_course_id"
+    t.index ["tarif_id"], name: "index_prices_on_tarif_id"
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.bigint "course_id", null: false
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["course_id"], name: "index_projects_on_course_id"
+  end
+
+  create_table "tarifs", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -116,4 +144,7 @@ ActiveRecord::Schema.define(version: 2021_05_26_095639) do
   add_foreign_key "add_infos", "users"
   add_foreign_key "course_staffs", "courses"
   add_foreign_key "course_staffs", "users"
+  add_foreign_key "prices", "courses"
+  add_foreign_key "prices", "tarifs"
+  add_foreign_key "projects", "courses"
 end

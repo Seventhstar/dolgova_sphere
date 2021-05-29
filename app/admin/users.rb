@@ -9,8 +9,6 @@ ActiveAdmin.register User do
   scope -> { 'Админы' }, :admins
   scope -> { 'Клиенты' }, :clients
 
-#  filter :is_admin, as: :check_boxes
-
   index do
     selectable_column
     id_column
@@ -33,18 +31,6 @@ ActiveAdmin.register User do
       super
     end
   end
-
-# before_save do |user|
-#   user.skip_confirmation!
-#   user.skip_reconfirmation!
-# end
-#
-
-# member_action :delete_avatar, method: :delete do
-#   @pic = ActiveStorage::Attachment.find(params[:id])
-#   @pic.purge_later
-#   redirect_back(fallback_location: edit_admin_category_path)
-# end
 
   filter :email
   filter :current_sign_in_at

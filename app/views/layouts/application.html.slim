@@ -24,3 +24,9 @@ html
         = alert
       = render "top_menu"
       = yield
+
+      .footer
+        ul
+          - Contact.order(:id).each do |contact|
+            li.contact-item
+              = contact.value

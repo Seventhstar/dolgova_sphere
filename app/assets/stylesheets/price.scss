@@ -1,0 +1,52 @@
+@import "common.scss";
+
+.price-container {
+  font-family: 'Roboto', cursive;
+  margin: 120px auto 80px auto;
+  max-width: 80%;
+
+  h1, h2, h3 {
+    text-align: center;
+    color: $dark-color;
+  }
+
+  h1 {
+    margin: 8px;
+  }
+
+  h3 {
+    font-size: 20px;
+    margin: 2px;
+  }
+}
+
+.price-group {
+  font-size: 16px;
+  padding: 4px;
+  text-align: center;
+  background-color: $second-color;
+  color: white;
+}
+
+.price-grid {
+  font-size: 16px;
+  color: $main-color;
+  display: grid;
+  grid-template-columns: 1fr 70px;
+
+  .title {
+    text-transform: uppercase;
+  }
+  .price.title {
+    margin-left: -48px;
+  }
+
+  div {
+    padding: 4px 12px;
+    border-bottom: 1px solid $second-color;
+  }
+
+  .price {
+    text-align: right;
+  }
+}

@@ -1,0 +1,19 @@
+.price-container
+  H1 Психологическое консультирование
+  h3 онлайн и очно
+
+  h2 Стоимость услуг
+  .price-list
+    - @prices.each do |group|
+      .price-group
+        = "#{group.first.name_for_price} / #{group.first.duration}"
+      .price-grid
+        .name.title
+          |Специалист
+        .price.title
+          |Стоимость
+        - group.last.each do |price|
+          .name
+            = price.staff.name
+          .price
+            = price.amount.to_sum

@@ -1,6 +1,6 @@
 <template>
   <div class="course-card">
-    <div class="staff_card full">
+    <div class="staff-card full">
       <div class="staff-card-head">
         <img class="we_card_img course-img left"
              :src="require('images/course-'+course.id+'w.svg')"/>

@@ -25,7 +25,7 @@
 }
 
 @media screen and (min-width: 540px) and (max-width: 760px) {
-  .staff_card.main .flex-card img {
+  .staff-card.main .flex-card img {
     max-width: 43%;
   }
 
@@ -33,7 +33,7 @@
     padding: 0 !important;
   }
 
-  .staff_card.main {
+  .staff-card.main {
     font-size: 12px;
   }
 }
@@ -54,7 +54,7 @@
   //  max-width: 140%;
   //}
 
-  .staff-page .staff_card, .staff-page .card {
+  .staff-page .staff-card, .staff-page .card {
     max-width: 90%;
   }
 
@@ -118,7 +118,7 @@
     }
   }
 
-  .staff_card.main {
+  .staff-card.main {
     font-size: 10px;
 
     .card-body {
@@ -193,5 +193,30 @@
   }
   .menu, .menu a, .user_name {
     font-size: 12px !important;
+  }
+
+  .flex-card {
+    padding: 8px !important;
+  }
+
+  .card-body {
+    margin: 0 4px !important;
+  }
+
+  .card-body .h3 {
+    font-size: 18px !important;
+    margin-bottom: 2px !important;
+  }
+
+  .about {
+    font-size: 10px !important;
+  }
+
+  .staff-card {
+    margin: 10px auto 20px auto !important;
+  }
+
+  .about-img {
+    display: none;
   }
 }

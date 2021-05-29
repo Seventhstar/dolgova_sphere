@@ -1,6 +1,6 @@
 <template>
   <div class="staff-page">
-    <div class="staff_card full main">
+    <div class="staff-card full main">
       <div class="staff-card-head">
         <div class="flex-line">
           <div class="h3">{{user.name}}</div>
@@ -20,20 +20,20 @@
       </div>
     </div>
 
-    <div class="staff_card full">
+    <div class="staff-card full">
       <div class="flex-card">
         <div class="card-body">
           <div class="h3">Обо мне</div>
           <div class="about" v-html="about"/>
         </div>
-        <img class="we_card_img staff-img"
+        <img class="we_card_img about-img"
              :src="aboutImage"/>
       </div>
     </div>
 
-    <div class="staff_card full">
+    <div class="staff-card full">
       <div class="flex-card">
-        <img class="we_card_img staff-img"
+        <img class="we_card_img about-img"
              :src="studyImage"/>
 
         <div class="card-body">

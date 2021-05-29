@@ -21,7 +21,7 @@
   justify-content: space-between;
 }
 
-.staff_card {
+.staff-card {
   display: inline-block;
   min-width: 100%;
   background-color: white;
@@ -35,7 +35,7 @@
   color: #383434;
 }
 
-.staff_card .grid {
+.staff-card .grid {
   display: grid;
   grid-template-columns: 160px 1fr;
   grid-column-gap: 20px;

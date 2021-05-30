@@ -16,15 +16,32 @@
 }
 
 
+
 #main_container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
+  min-height: 600px;
 }
 
 body {
   font-family: 'Exo 2', cursive;
 }
+
+h1, h2, h3 {
+  text-align: center;
+  color: $dark-color;
+}
+
+h1 {
+  margin: 8px;
+}
+
+h3 {
+  font-size: 20px;
+  margin: 2px;
+}
+
 
 .footer {
   text-align: center;
@@ -53,7 +70,7 @@ body {
 
 #sphere {
   width: 50%;
-  margin: 80px auto 120px auto;
+  margin: 80px auto;
   display: block;
 }
 

@@ -17,16 +17,16 @@ html
   // = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
 
   body
+    = render "top_menu"
     #main_container
       p class="notice"
         = notice
       p class="alert"
         = alert
-      = render "top_menu"
       = yield
 
-      .footer
-        ul
-          - Contact.order(:id).each do |contact|
-            li.contact-item
-              = contact.value
+    .footer
+      ul
+        - Contact.order(:id).each do |contact|
+          li.contact-item
+            = contact.value

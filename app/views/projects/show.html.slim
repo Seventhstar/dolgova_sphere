@@ -1,0 +1,10 @@
+.staff-card.full.main
+  .staff-card-head
+    .flex-line
+      .h3
+        = @project.name
+      = image_tag 'leaf-white.svg', class: 'icon-20'
+  .flex-card
+    = image @project, 'image'
+    .card-body
+      = @project.description

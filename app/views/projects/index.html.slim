@@ -1,0 +1,15 @@
+h1 Наши проекты
+
+.projects-page
+  - @projects.each do |prj|
+    .staff-card.full.main
+      .staff-card-head
+        .flex-line
+          .h3
+            = prj.name
+          = image_tag 'leaf-white.svg', class: 'icon-20'
+      .flex-card
+        = image prj, 'image'
+        .card-body
+          = prj.overview
+          = link_to 'Подробнее', prj

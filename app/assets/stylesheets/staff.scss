@@ -35,7 +35,7 @@
   color: #383434;
 }
 
-.staff-card .grid {
+.staff-card .grid, .projects-page .grid{
   display: grid;
   grid-template-columns: 160px 1fr;
   grid-column-gap: 20px;

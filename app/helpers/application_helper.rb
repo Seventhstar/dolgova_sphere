@@ -14,4 +14,11 @@ module ApplicationHelper
   def image_url(obj, image_name)
     polymorphic_url(obj.try(image_name)) if obj.try(image_name).attached?
   end
+
+  def image(obj, image_name)
+    url = image_url(obj, image_name)
+    image_tag url unless url.nil?
+
+
+  end
 end

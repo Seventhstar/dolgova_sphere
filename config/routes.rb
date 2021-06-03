@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'project/index'
+  resources :projects
   get 'price/index'
   get 'contacts/index'
 # resources :users, only: [:show]

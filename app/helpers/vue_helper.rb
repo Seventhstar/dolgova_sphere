@@ -1,8 +1,7 @@
 module VueHelper
-  def for_js(data, methods = [], except = [])
-    except = [:created_at, :updated_at] if except.empty?
-    select_src(data).to_json
-    # console
+
+  def for_js(data, fields = [])
+    select_src(data, fields)
   end
 
   def for_vue(data, methods = [], except = [])
@@ -11,7 +10,7 @@ module VueHelper
   end
 
   def string_to_array(string)
-    if string.class == Array 
+    if string.class == Array
       return string
     elsif string.include?(' ')
       return string.split(' ').map(&:strip)
@@ -43,8 +42,8 @@ module VueHelper
 
 
   def fill_vue_data(obj, data, where = nil, to_include = nil)
-    if controller.action_name == "index" 
-      data[:controller] = controller.controller_name if !data[:controller].present? 
+    if controller.action_name == "index"
+      data[:controller] = controller.controller_name if !data[:controller].present?
     end
 
     if to_include.present? && to_include.include?('vue_index')
@@ -55,16 +54,16 @@ module VueHelper
       new_array = []
       string_to_array(data[:menu_items]).each do |mi|
         m = mi.split(':')
-        new_array.push({label: m[0], link: m[1]} )
+        new_array.push({label: m[0], link: m[1]})
       end
       data[:menu_items] = new_array
     end
 
     if data[:columns].present? && [String, Array].include?(data[:columns].class)
       new_array = []
-      string_to_array(data[:columns]).each do |col| 
+      string_to_array(data[:columns]).each do |col|
         if col.class == Array
-          name  = col[0]
+          name = col[0]
           label = col[1]
         else
           if col.include?(':')
@@ -77,7 +76,7 @@ module VueHelper
           end
         end
 
-        name = name[0..-4] if name.end_with?("_id") 
+        name = name[0..-4] if name.end_with?("_id")
         new_array.push([name, label])
       end
       data[:columns] = new_array
@@ -85,7 +84,7 @@ module VueHelper
 
     if data[:groupBys].present?
       data[:lists] = !data[:lists].present? ? [] : string_to_array(data[:lists])
-      data[:translated] = {} if !data[:translated].present? 
+      data[:translated] = {} if !data[:translated].present?
       data[:list_values] = [] if !data[:list_values].present?
       data[:list_values] = data[:list_values].push('groupBy').compact
       # puts "data[:list_values] #{data[:list_values]}"
@@ -100,21 +99,21 @@ module VueHelper
           label = t(fi)
         end
         data[:lists].push(val.classify.pluralize.downcase)
-        data[:translated][val] = label 
+        data[:translated][val] = label
         new_array.push({label: label, value: val})
-      end      
+      end
       data[:groupBys] = new_array
     end
 
     if data[:filterItems].present?
       data[:lists] = !data[:lists].present? ? [] : string_to_array(data[:lists])
-      data[:translated] = {} if !data[:translated].present? 
+      data[:translated] = {} if !data[:translated].present?
       data[:list_values] = [] if !data[:list_values].present?
 
       string_to_array(data[:filterItems]).each do |fi|
         data[:list_values] << fi
         data[:lists].push(fi.classify.pluralize.downcase)
-        data[:translated][fi] = t(fi+'_id')
+        data[:translated][fi] = t(fi + '_id')
       end
       @filterItems = data[:filterItems]
     end
@@ -136,7 +135,7 @@ module VueHelper
       data.delete(:booleans)
     end
 
-    if data[:texts].present? 
+    if data[:texts].present?
       string_to_array(data[:texts]).each do |t|
         data[t] = eval("@#{t}")
         data[t] = obj.nil? || obj[t].nil? ? '' : obj[t] if data[t].nil?
@@ -148,7 +147,7 @@ module VueHelper
       string_to_array(data[:lists]).each do |l|
         fields = nil
         raw = false
-        if l.index('+').present? 
+        if l.index('+').present?
           lf = l.split('+')
           fields = lf[1]
           l = lf[0]
@@ -167,8 +166,8 @@ module VueHelper
           l = la[0]
         end
 
-        if collection.present? 
-            data[l] = raw ? collection : select_src(collection, "name", false, fields) 
+        if collection.present?
+          data[l] = raw ? collection : select_src(collection, fields, "name", false)
         else
           data[l] = []
         end
@@ -176,12 +175,12 @@ module VueHelper
       data.delete(:lists)
     end
 
-    if data[:list_values].present? 
-      string_to_array(data[:list_values]).each do |li| 
-        v = v_value(nil, nil, nil, eval("@#{li}"))        
+    if data[:list_values].present?
+      string_to_array(data[:list_values]).each do |li|
+        v = v_value(nil, nil, nil, eval("@#{li}"))
         v = v_value(obj, li) if !v.present?
         if v.class == Integer
-          v = data[li.pluralize].select {|a| a[:value] == v}
+          v = data[li.pluralize].select { |a| a[:value] == v }
           v = v[0] if v.length
         end
         data[li] = v
@@ -194,53 +193,51 @@ module VueHelper
 
   def v_value(obj, name, attr_name = nil, default = nil, safe = false)
     attr_name ||= "name"
-    if !obj.nil? && obj.id? 
-      if !obj["#{name}_id"].nil? && obj["#{name}_id"]>0
+    if !obj.nil? && obj.id?
+      if !obj["#{name}_id"].nil? && obj["#{name}_id"] > 0
         val = obj["#{name}_id"]
         label = obj.try("#{name}_#{attr_name}")
         label = obj.try(name).try(attr_name) if label.nil?
       end
     elsif default.present?
       if default.class == Hash then
-        val   = default[:id]
+        val = default[:id]
         label = default[:name]
       elsif default.class == String || default.class == Integer
-        val   = default
+        val = default
         return val
       else
-        val   = default.id
+        val = default.id
         label = default.name
       end
     end
     h = {}
-    h[:value] = val if val.present? 
-    h[:label] = label if label.present? 
+    h[:value] = val if val.present?
+    h[:label] = label if label.present?
     h = h.to_json.html_safe.to_s if safe
     h
   end
 
-  def select_src(collection, attr_name = "name", safe = false, fields_str = nil)
-    if fields_str.nil? 
-      collection = collection.collect{|u| 
+  def select_src(collection, fields_str = nil, attr_name = "name", safe = false)
+    if fields_str.nil?
+      collection = collection.collect { |u|
         case u.class.to_s
-          when "Hash"
-            {label: u[attr_name.to_sym], value: u[:id]} if u[attr_name.to_sym].present?
-          when "Array"
-          else
-            {label: u.try(attr_name), value: u.id} if u.try(attr_name).present?
+        when "Hash"
+          {label: u[attr_name.to_sym], value: u[:id]} if u[attr_name.to_sym].present?
+        when "Array"
+        else
+          {label: u.try(attr_name), value: u.id} if u.try(attr_name).present?
         end
       }.compact
     else
       fields = fields_str.split(',')
-      collection = collection.collect{|u| 
+      collection = collection.collect { |u|
         c = {label: u.try(attr_name), value: u.id}
-        fields.each {|f| c[f] = u.try(f)}
+        fields.each { |f| c[f] = u.try(f) }
         c
       }
     end
     collection = collection.to_json.html_safe.to_s if safe
     collection
   end
-
-
 end

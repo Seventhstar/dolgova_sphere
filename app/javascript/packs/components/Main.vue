@@ -41,8 +41,12 @@
         let degreeStep = 360 / iconsData.length
         iconsData.forEach((u, index) => {
           this.iconsData.push({
-            id: u.value, degree: degreeStep * index, name: "child",
-            title: u.label, active: false
+            id: u.value,
+            degree: degreeStep * index,
+            name: "child",
+            icon: u.icon_url,
+            title: u.label,
+            active: false
           })
         })
         // console.log('this.iconsData', this.iconsData)
@@ -112,14 +116,12 @@
           this.iconsData.forEach(i => i.active = false)
         } else if (this.idx === 6) {
           this.idx = 0
-          let newActive = Math.round(Math.random() * 4)
-          if (this.activeNumber === newActive) newActive += 1
-          if (newActive === 4) newActive = 0
+
+          let newActive = this.activeNumber + 1
+          if (newActive === this.iconsData.length) newActive = 0
           this.activeNumber = newActive
           this.iconsData[this.activeNumber].active = true
         }
-
-        // console.log('this.idx', this.idx)
       },
 
       onIconHover(data) {

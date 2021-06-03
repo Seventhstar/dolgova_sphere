@@ -1,7 +1,8 @@
 <template>
   <div>
-    <img :src="require('images/ring-white.svg')" :style="whiteRingStyle" alt="icon"/>
-    <img :src="require('images/course-'+fields.id+'.svg')"
+    <span :style="whiteRingStyle"/>
+    <img :src="fields.icon"
+
          :style="iconStyle"
          @click="iconClick"
          v-on:mouseover="mouseOver"
@@ -47,6 +48,13 @@
     },
 
     computed: {
+      background: function () {
+        return (this.active || this.fields.active) ? '#01839d' : 'white';
+      },
+
+      filter: function () {
+        return (this.active || this.fields.active) ? 'brightness(1000%)' : '';
+      },
 
       href: function () {
         return '/course/' + this.fields.id
@@ -60,13 +68,14 @@
         return (this.minSize / 2) * Math.sin(this.fields.degree * Math.PI / 180) - this.iconSize / 2 + this.size / 2;
       },
 
-
-      whiteRingStyle: function() {
+      whiteRingStyle: function () {
         return `width: ${this.iconSize}px;
                 height: ${this.iconSize}px;
 	              margin-top: ${this.yPos}px;
 	              margin-left: ${this.xPos}px;
 	              z-index: 100;
+	              background-color: ${this.background};
+	              border-radius: 50%;
 	              left: 50%; position: absolute`
       },
 
@@ -76,14 +85,15 @@
 	              margin-top: ${this.yPos}px;
 	              margin-left: ${this.xPos}px;
 	              z-index: 200;
+	              filter: ${this.filter};
 	              left: 50%; position: absolute`
       },
 
       ringStyle: function () {
-        return `width: ${this.iconSize}px;
-                height: ${this.iconSize}px;
-	              margin-top: ${this.yPos}px;
-	              margin-left: ${this.xPos}px;
+        return `width: ${this.iconSize + 8}px;
+                height: ${this.iconSize + 8}px;
+	              margin-top: ${this.yPos - 4}px;
+	              margin-left: ${this.xPos - 4}px;
 	              z-index: 150;
 	              left: 50%; position: absolute`
       },

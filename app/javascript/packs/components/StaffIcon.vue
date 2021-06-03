@@ -1,12 +1,13 @@
 <template>
   <div :style="iconContainer">
+    <span :style="whiteRingStyle"/>
     <img :src="require('images/staff-sm-'+fields.id+'.jpg')"
          :style="imgStyle"
          @click="iconClick"
          v-on:mouseover="mouseOver"
          v-on:mouseleave="mouseLeave"/>
 
-    <transition-group name="fade" >
+    <transition-group name="fade">
       <img :src="require('images/ring.svg')"
            :style="ringStyle"
            :key="0"
@@ -79,6 +80,18 @@
 
         return style
       },
+
+      whiteRingStyle: function () {
+        return `width: ${this.iconSize + 8}px;
+                height: ${this.iconSize + 8}px;
+	              margin-top: -4px;
+	              margin-left: -4px;
+	              z-index: 100;
+	              background-color: white;
+	              border-radius: 50%;
+	              position: absolute`
+      },
+
 
       imgStyle: function () {
         return this.commonStyle('img');

@@ -113,8 +113,7 @@
         }
         this.idx += 1;
         if (this.idx === 2) {
-          let newActive = Math.round(Math.random() * this.iconsData.length)
-          if (this.activeNumber === newActive) newActive += 1
+          let newActive = this.activeNumber + 1
           if (newActive === this.iconsData.length) newActive = 0
           this.activeNumber = newActive
           this.iconsData[this.activeNumber].active = true

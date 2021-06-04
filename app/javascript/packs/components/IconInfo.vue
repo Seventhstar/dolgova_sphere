@@ -81,7 +81,7 @@
           this.textSize = 22;
           this.padding = 10;
         } else {
-          this.textSize = 26;
+          this.textSize = 24;
           this.padding = 10;
         }
         //console.log('this.size', this.size, 'this.textSize', this.textSize)

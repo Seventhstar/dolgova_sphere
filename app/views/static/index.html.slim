@@ -1,7 +1,7 @@
 #app
 = javascript_pack_tag 'main'
 = content_tag :div, id: 'courses-data',
-        data: {courses: for_js(Course.all, 'icon_url')\
+        data: {courses: for_js(Course.order(:id), 'icon_url')\
         } do
 
 

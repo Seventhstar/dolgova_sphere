@@ -15,8 +15,6 @@
   object-fit: cover;
 }
 
-
-
 #main_container {
   max-width: 1200px;
   margin: 0 auto;
@@ -28,7 +26,7 @@ body {
   font-family: 'Exo 2', cursive;
 }
 
-h1, h2, h3, h5 {
+h1, h2, h3, h4, h5 {
   text-align: center;
   color: $dark-color;
 }
@@ -140,7 +138,6 @@ h3 {
   -moz-transition-duration: 1s;
   -o-transition-duration: 1s;
   transition-duration: 1s;
-
 }
 
 .fade-item {
@@ -184,8 +181,7 @@ h3 {
 
 .fade-enter, .fade-leave-to /* .fade-leave-active до версии 2.1.8 */
 {
-  transition: all 10s;
-
+  transition: all 5s;
 }
 
 .fade-enter {
@@ -195,12 +191,10 @@ h3 {
   -moz-transform: rotate(45deg);
   -o-transform: rotate(45deg);
 
-
   -webkit-transition-duration: 1s;
   -moz-transition-duration: 1s;
   -o-transition-duration: 1s;
   transition-duration: 1s;
-
 }
 
 .fade-leave-to {
@@ -241,7 +235,7 @@ h3 {
 }
 
 .h3 {
-  font-family: 'Exo 2';
+  font-family: 'Exo 2', serif;
   font-size: 22px;
   margin-bottom: 12px !important;
 }
@@ -249,6 +243,10 @@ h3 {
 .icon {
   height: 16px;
   width: 16px;
+}
+
+.icon-invert {
+  filter: brightness(1000%);
 }
 
 .icon-20 {
@@ -272,9 +270,7 @@ h3 {
   transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
 }
 
-.slide-fade-enter, .slide-fade-leave-to
-  /* .slide-fade-leave-active below version 2.1.8 */
-{
+.slide-fade-enter, .slide-fade-leave-to {
   transform: translateX(10px);
   opacity: 0;
 }

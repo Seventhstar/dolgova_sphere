@@ -5,16 +5,41 @@
 }
 
 .staff-list {
-  //position: absolute;
   display: flex;
-  float: right;
-  //margin-top: -34px;
-  margin-top: -86px;
-  right: 28px;
+  // float: right;
+  // margin-top: -34px;
+  // margin-top: -86px;
+  // right: 28px;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
   img {
     margin-right: 8px;
   }
 }
+
+.staff-list {
+  display: flex;
+  /* float: none; */
+  /* align-items: center; */
+  justify-content: center;
+  /* right: 28px; */
+}
+
+
+.staff-item {
+  margin: 20px;
+  max-width: 90px;
+  font-size: 12px;
+
+  text-align: center;
+}
+
+.staff-title {
+  display: block;
+  margin-top: 8px;
+}
+
 
 .flex-line {
   display: flex;

@@ -2,18 +2,25 @@
   <div class="course-card">
     <div class="staff-card full">
       <div class="staff-card-head">
-        <img class="we_card_img course-img left"
-             :src="require('images/course-'+course.id+'w.svg')"/>
+        <img class="we_card_img course-img left icon-invert"
+             :src="course.icon_url"/>
         <div class="h3">{{course.name}}</div>
       </div>
 
-      <div class="card-body">
+      <div class="card-body ma-4">
         <div class="about" v-html="course.description_html"/>
       </div>
     </div>
-    <div class="course-icons">
-      <div class="staff-list">
-        <staff-icon :fields="icon" v-for="icon in iconsData" :key="icon.id" :size="0"/>
+
+    <div class="staff-card full">
+      <div class="course-icons">
+        <h4>Специалисты по направлению:</h4>
+        <div class="staff-list">
+          <div class="staff-item" v-for="icon in iconsData">
+            <staff-icon :fields="icon" :key="icon.id" :size="0"/>
+            <span class="staff-title">{{icon.title}}</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -53,8 +60,11 @@
       this.iconsData.length = 0
       this.staffs.forEach((u) => {
         this.iconsData.push({
-          id: u.id, degree: 0, name: "child",
-          title: u.name, course: u.course, active: false
+          id: u.id, degree: 0,
+          name: u.name,
+          title: u.name,
+          course: u.course,
+          active: false
         })
       })
 

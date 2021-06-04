@@ -2,7 +2,7 @@
 = javascript_pack_tag 'course'
 
 = content_tag :div, id: 'course-data',
-        data: {course: for_vue(@course, [:description_html])\
+        data: {course: for_vue(@course, [:description_html, :icon_url])\
         } do
 
 = content_tag :div, id: 'staff-data',

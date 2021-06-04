@@ -26,7 +26,7 @@
         active: false,
         degree: 90,
         minSize: 900,
-        iconSize: 64,
+        iconSize: 90,
         showChild: false
       }
     },
@@ -66,12 +66,13 @@
       },
 
       iconContainer() {
-        let style = `width: ${this.iconSize}px;
+        let style = `
                      height: ${this.iconSize}px;
                      display: table;`
 
         if (this.size !== 0) {
-          style += `margin-top: ${this.yPos}px;
+          style += `width: ${this.iconSize}px;
+                    margin-top: ${this.yPos}px;
                    margin-left: ${this.xPos}px;
                    left: 50%; position: absolute`
         } else {

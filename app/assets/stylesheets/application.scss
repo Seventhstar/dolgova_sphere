@@ -59,15 +59,13 @@ h3 {
 }
 
 .footer {
-  margin: 30px 20px;
+  margin: 30px 12px;
   display: flex;
   place-content: space-evenly;
 
   ul {
     margin: 0;
     padding-left: 0.3em;
-//    margin: 0 auto;
-//    display: flex;
     list-style-type: none;
     font-size: 14px;
     color: $main-color;
@@ -75,17 +73,14 @@ h3 {
     li {
       display: list-item;
       line-height: 1em;
-      //margin: 4px;
       height: 18px;
     }
-
-//    li:not(:first-child):before {
-//      content: "|";
-//      margin-right: 4px;
-//    }
   }
 }
 
+.social {
+  min-width: 120px;
+}
 
 #sphere {
   width: 50%;

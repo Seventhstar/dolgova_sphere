@@ -158,7 +158,7 @@
           minSize = Math.min(window.innerHeight / 1.1, window.innerWidth / 1.1) - 40;
 
         if (minSize > this.windowWidth) minSize = this.windowWidth - 40;
-        console.log('minSize', minSize, 'this.windowWidth', this.windowWidth, 'this.windowHeight', this.windowHeight)
+        //console.log('minSize', minSize, 'this.windowWidth', this.windowWidth, 'this.windowHeight', this.windowHeight)
         this.minSize = minSize;
         this.iconSize = this.minSize / 7;
       }

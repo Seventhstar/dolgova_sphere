@@ -30,6 +30,7 @@
     margin-left: -200px;
     padding-top: 38px;
   }
+
 }
 
 @media screen and (min-width: 540px) and (max-width: 760px) {
@@ -45,6 +46,11 @@
     padding: 0 !important;
   }
 
+  .card-body {
+    padding: 12px;
+  }
+
+
   .staff-card.main {
     font-size: 12px;
   }
@@ -58,6 +64,8 @@
 @media screen and (max-width: 1200px) {
   .about_card, .we_card, .footer_card {
     max-width: 960px;
+
+    img {max-width: 48%}
   }
 
   //.logo {
@@ -88,7 +96,7 @@
 @media screen and (max-width: 540px) {
   .about_card, .we_card, .footer_card {
     max-width: 95%;
-    padding: 4px 5px 0 4px !important;
+    padding: 4px 5px 8px 4px !important;
     margin: 20px auto !important;
     font-size: 14px !important;
 
@@ -97,6 +105,13 @@
     box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.08);
   }
 
+  .ma-4, .flex-card.ma-4, .card-body.ma-4 {
+    padding: 8px !important;
+  }
+
+  .card-body {
+    padding: 8px;
+  }
 
   #main_container .price-container {
     margin: 40px auto !important;
@@ -140,24 +155,38 @@
     }
   }
 
-  .staff-card.main {
-    font-size: 10px;
+  .flex-card.to-flex-col {
+    flex-direction: column;
+
+    img {
+      width: 100%;
+      max-width: 100% !important;
+    }
+  }
+
+  .staff-card {
+    margin: 20px auto !important;
+  }
+
+  //.staff-card.main {
+  //  font-size: 10px;
 
     .card-body {
-      margin: 4px 10px;
+      font-size: 10px;
+//      margin: 4px 10px;
 
       .h3 {
         line-height: 1em;
-        font-size: 18px;
+        font-size: 18px !important;
       }
     }
+  //}
 
-    .flex-card {
-      img {
-        max-width: 48%;
-      }
+  .flex-card {
+    padding: 0 !important;
 
-      padding: 0 !important;
+    img {
+      max-width: 48% !important;
     }
   }
 
@@ -174,6 +203,10 @@
     padding: 0 8px 0 8px !important;
   }
 
+  .about-img.image-hide {
+    display: none;
+  }
+
   //.logo {
   //  max-width: 90%;
   //  margin-left: 10px !important;
@@ -183,9 +216,9 @@
     max-width: 100% !important;
   }
 
-  .we_card_img {
-    width: 90%
-  }
+  //.we_card_img {
+  //  width: 90%
+  //}
 
   #head {
     flex-direction: column;
@@ -220,7 +253,8 @@
   }
 
   .flex-card {
-    padding: 8px !important;
+    //padding: 8px !important;
+    padding: 0 !important;
   }
 
   .card-body {
@@ -236,7 +270,7 @@
     font-size: 14px !important;
   }
 
-  .about {
+  .about, .card-body {
     font-size: 10px !important;
   }
 
@@ -244,9 +278,7 @@
     margin: 10px auto 20px auto !important;
   }
 
-  .about-img {
-    display: none;
-  }
+
 
   h1 {
     font-size: 28px;

@@ -1,0 +1,16 @@
+.footer
+  .usual
+    h5 Наши контакты:
+    ul.center
+      - Contact.usual.order(:id).each do |contact|
+        li.contact-item
+          span = contact.value
+
+  .social
+    h5 Мы в соцсетях:
+    ul
+      - Contact.social.order(:id).each do |contact|
+        li.contact-item
+          a href="#{contact.link}" target="_blank" class="contact_link"
+            = image contact, 'icon'
+            span = contact.value

@@ -13,7 +13,7 @@
 
         <img class="staff-img"
              :src="mainImage"/>
-        <div class="card-body">
+        <div class="card-body ml-4">
           <div class="h3">C чем я работаю:</div>
           <div class="about" v-html="main"/>
         </div>
@@ -21,10 +21,10 @@
     </div>
 
     <div class="staff-card full">
-      <div class="flex-card">
-        <div class="card-body">
+      <div class="flex-card to-flex-col">
+        <div class="card-body mr-4">
           <div class="h3">Обо мне</div>
-          <div class="about" v-html="about"/>
+          <div class="about " v-html="about"/>
         </div>
         <img class="we_card_img about-img"
              :src="aboutImage"/>
@@ -32,8 +32,8 @@
     </div>
 
     <div class="staff-card full">
-      <div class="flex-card">
-        <img class="we_card_img about-img"
+      <div class="flex-card ma-4">
+        <img class="we_card_img about-img image-hide"
              :src="studyImage"/>
 
         <div class="card-body">

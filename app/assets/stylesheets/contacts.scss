@@ -5,17 +5,41 @@
 .constants-container {
   margin: 30px auto;
   display: table;
+
+  h1 {
+    margin: 30px auto;
+  }
 }
 
 .contacts-grid {
-  font-family: 'Roboto', Sans-Serif;
+  font-family: 'Roboto', Sans-Serif, serif;
   display: grid;
-  grid-template-columns: 80px 300px;
+  grid-template-columns: 100px 300px;
+  column-gap: 12px;
   font-size: 16px;
+}
+
+.contact-name {
+  text-align: right;
 }
 
 .google-map {
   width: 80%;
   margin: 50px auto;
   height: 450px;
+}
+
+.contact-item img {
+  width: 16px;
+  height: 16px;
+  margin: 0 0 0 4px;
+}
+
+.contact-item span {
+  //margin-top: -4px;
+}
+
+.contact_link {
+  text-decoration: none !important;
+  display: inline-flex;
 }

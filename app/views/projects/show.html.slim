@@ -6,5 +6,12 @@
       = image_tag 'leaf-white.svg', class: 'icon-20'
   .flex-card
     = image @project, 'image'
-    .card-body
-      = @project.description
+    .card-body.ml-4
+      = @project.description_html
+
+
+#app
+= javascript_pack_tag 'project'
+= content_tag :div, id: 'staff-data',
+        data: {users: for_vue(@project.staffs)\
+        } do

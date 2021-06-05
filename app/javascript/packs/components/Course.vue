@@ -12,27 +12,17 @@
       </div>
     </div>
 
-    <div class="staff-card full">
-      <div class="course-icons">
-        <h4>Специалисты по направлению:</h4>
-        <div class="staff-list">
-          <div class="staff-item" v-for="icon in iconsData">
-            <staff-icon :fields="icon" :key="icon.id" :size="0"/>
-            <span class="staff-title">{{icon.title}}</span>
-          </div>
-        </div>
-      </div>
-    </div>
+    <StaffList title="Специалисты по направлению"/>
   </div>
 
 </template>
 
 <script>
-  import StaffIcon from "./StaffIcon";
+  import StaffList from "./StaffList";
 
   export default {
     name: "Course",
-    components: {StaffIcon},
+    components: {StaffList},
     data: function () {
       return {
         id: 2,
@@ -51,29 +41,8 @@
       if (element !== null) {
         this.course = JSON.parse(element.dataset.course)
       }
-
-      element = document.getElementById('staff-data')
-      if (element !== null) {
-        this.staffs = JSON.parse(element.dataset.users)
-      }
-
-      this.iconsData.length = 0
-      this.staffs.forEach((u) => {
-        this.iconsData.push({
-          id: u.id, degree: 0,
-          name: u.name,
-          title: u.name,
-          course: u.course,
-          active: false
-        })
-      })
-
-
     },
 
   }
 </script>
 
-<style scoped>
-
-</style>

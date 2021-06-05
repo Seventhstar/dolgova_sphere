@@ -10,6 +10,6 @@ h1 Наши проекты
           = image_tag 'leaf-white.svg', class: 'icon-20'
       .flex-card
         = image prj, 'image'
-        .card-body
-          = prj.overview
+        .card-body.ml-4
+          = prj.overview_html
           = link_to 'Подробнее', prj

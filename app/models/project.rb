@@ -5,4 +5,15 @@ class Project < ApplicationRecord
   has_one_attached :image
 
   scope :active, -> { where(active: true).order(:id) }
+
+
+  def description_html
+    ActionController::Base.helpers.simple_format(self&.description)
+  end
+
+  def overview_html
+    ActionController::Base.helpers.simple_format(self&.overview)
+  end
+
+
 end

@@ -13,8 +13,8 @@ ActiveAdmin.register Project do
       f.input :name
       f.input :active, as: :boolean
       f.input :course
-      f.input :overview, as: :froala_editor
-      f.input :description, as: :froala_editor
+      f.input :overview, as: :quill_editor
+      f.input :description, as: :quill_editor
 
       f.input :image, as: :file
       span image_tag(f.object.image), alt: f.object.image.name if f.object.image.present?

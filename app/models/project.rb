@@ -8,11 +8,11 @@ class Project < ApplicationRecord
 
 
   def description_html
-    ActionController::Base.helpers.simple_format(self&.description)
+    self&.description.html_safe
   end
 
   def overview_html
-    ActionController::Base.helpers.simple_format(self&.overview)
+    self&.overview.html_safe
   end
 
 

@@ -13,3 +13,6 @@
         data: {user: for_vue(@user, [:course, :main, :about, :education])\
         } do
 
+= content_tag :div, id: 'cert-images',
+        data: {certificates: for_vue(@user.cert_images)\
+	} do

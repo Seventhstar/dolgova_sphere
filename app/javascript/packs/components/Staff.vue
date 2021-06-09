@@ -43,18 +43,37 @@
       </div>
     </div>
 
+    <div class="modal-container" @click="showBig = false" v-show="showBig">
+      <div class="modal-img">
+        <img :src="img_url" alt=""/>
+      </div>
+    </div>
+
+    <h3>Мои дипломы/сертификаты:</h3>
+    <carousel-3d>
+      <slide :index="index" v-for="(cert, index) in certificates">
+        <img :src="cert_link(cert)" alt="" @click="showBigImg(cert)"/>
+      </slide>
+    </carousel-3d>
+
   </div>
 </template>
 
 <script>
+  import { Carousel3d, Slide } from 'vue-carousel-3d';
   export default {
     name: 'Staff',
+    components: { Carousel3d,
+      Slide  },
     data: function () {
       return {
         id: 2,
         mainImage: '',
         aboutImage: '',
         studyImage: '',
+        certificates: [],
+        img_url: '',
+        showBig: false,
         about: '',
         main: '',
         education: '',
@@ -79,6 +98,12 @@
         this.aboutImage = element.dataset.about
         this.studyImage = element.dataset.study
       }
+
+      element = document.getElementById('cert-images')
+      if (element !== null) {
+        this.certificates = JSON.parse(element.dataset.certificates)
+        //console.log('this.certificates', this.certificates)
+      }
     },
 
     watch: {},
@@ -88,6 +113,15 @@
 
     computed: {},
 
-    methods: {}
+    methods: {
+      showBigImg(cert) {
+        this.img_url = cert.url
+        this.showBig = true
+      },
+
+      cert_link(cert) {
+        return cert.url
+      }
+    }
   }
 </script>

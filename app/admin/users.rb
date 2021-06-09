@@ -2,7 +2,7 @@ ActiveAdmin.register User do
   menu parent: "Пользователи", label: 'Пользователи'
   permit_params :email, :name, :password, :password_confirmation, :is_admin,
                 :is_staff, :actual, :avatar,
-                sertificates: [], sertificate_attributes: [:_destroy]
+                certificates: [], certificate_attributes: [:_destroy]
 
   scope -> { 'Все' }, :all
   scope -> { 'Сотрудники' }, :staff
@@ -48,10 +48,10 @@ ActiveAdmin.register User do
       f.input :avatar, as: :file
       span image_tag(f.object.avatar) if f.object.avatar.present?
 
-      f.input :sertificates, as: :file, input_html: {multiple: true}
+      f.input :certificates, as: :file, input_html: {multiple: true}
 
       span class: "admin_images" do
-        f.object.sertificates.each do |img|
+        f.object.certificates.each do |img|
           span class: "admin_image_preview" do
             span image_tag(img)
             a "Delete", href: delete_avatar_user_path(img.id), "data-method": :delete, "data-confirm": "Are you sure?"

@@ -9,7 +9,7 @@ ActiveAdmin.register Course do
       f.input :name
       f.input :order
       f.input :name_for_price
-      f.input :description, as: :froala_editor
+      f.input :description, as: :quill_editor, input_html: {data: def_quill_props}, label: "Краткое содержание"
       f.input :duration
 
       f.input :icon, as: :file
